@@ -1,0 +1,39 @@
+﻿@model MvcBlog.Models.Post
+@using Microsoft.AspNet.Identity
+
+@{
+    ViewBag.Title = "Details";
+}
+
+
+<div class="row">
+    <div class="col-xs-1 col-md-2">
+       
+    </div>
+    <div class="col-xs-6 col-md-8">
+        <h2 class="title">@Model.Title</h2>
+        <div class="body">
+
+            @Html.Raw(Model.Body)
+            @Html.DisplayNameFor(model => model.Date)
+            @Html.DisplayFor(model => model.Date)
+            
+            
+
+        </div>
+
+    </div>
+    <div class="col-xs-1 col-md-2">
+        
+    </div>
+</div>
+
+
+<p>
+    @if( User.IsInRole("Administrators"))
+    {
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn btn-primary", @style = "color:white" })
+    }
+    
+    @Html.ActionLink("Back to List", "Index", new {  }, new { @class = "btn btn-primary", @style = "color:white" })
+</p>

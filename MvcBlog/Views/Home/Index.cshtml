@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "Home";
+}
+
+@model List<MvcBlog.Models.Post>
+
+<aside class="sidebar">
+    <h2>Recent Posts</h2>
+    <ul>
+        @foreach (var sidebarPost in ViewBag.SideBarPosts)
+        {
+            <li>
+                <a href="\Posts\Details\@sidebarPost.Id">@sidebarPost.Title</a>
+            </li>
+        }
+    </ul>
+</aside>
+<div class="container">
+    <div class="jumbotron">
+        <h1>Best Car Blog EVER</h1>
+        <img src="https://exoticcars.enterprise.com/etc/designs/exotics/clientlibs/dist/img/homepage/Homepage-Hero-Car.png" class="img-responsive" />
+    </div>
+</div>
+    
+<div class="row">
+    @foreach (var post in Model)
+    {
+        <div class="post col-md-6">
+            <h2 class="title">@post.Title</h2>
+            <div class="about">
+                Posted on <i>@post.Date</i>
+                @if (post.Author != null)
+                {
+                    @:by <i>@post.Author.FullName (@post.Author.UserName)</i>
+                }
+                <div class="body">@Html.Raw(post.Body)</div>
+            </div>
+        </div>
+
+    }
+</div>

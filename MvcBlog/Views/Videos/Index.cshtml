@@ -1,0 +1,45 @@
+﻿@model IEnumerable<MvcBlog.Models.Video>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.VideoTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VideoUrl)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VideoDescription)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.VideoTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VideoUrl)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VideoDescription)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.VideoId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.VideoId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.VideoId })
+        </td>
+    </tr>
+}
+
+</table>

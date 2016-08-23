@@ -1,0 +1,87 @@
+﻿@model MvcBlog.ViewModel.GalleryCarViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>GalleryCar</h4>
+    <hr />
+    @*
+    
+        *@
+    <div class="row">
+        <div class="col-xs-1 col-md-2">
+            @if (Model.Car.Id != Model.firstItemID)
+            {
+                @Html.ActionLink("Previous", "Details", new { id = Model.Car.Id - 1 }, new { @class = "btn btn-primary", @style = "color:white" })
+            }
+            else
+            {
+                <button class="btn btn-default" style="color:black">Previous</button>               
+            }
+        </div>
+        <div class="col-xs-6 col-md-8">
+            <h2 class="title">@Model.Car.Title</h2>
+            <div class="body">
+
+                <img class="img-responsive img-rounded" src=@Html.Raw(Model.Car.URL)>
+                <p>
+                    @Html.ActionLink("Edit", "Edit", new { id = Model.Car.Id }) |
+                    @Html.ActionLink("Back to List", "Index")
+                </p>
+
+            </div>
+
+        </div>
+        <div class="col-xs-1 col-md-2">
+            @if (Model.Car.Id != Model.lastItemID)
+            {
+                @Html.ActionLink("Next", "Details", new { id = Model.Car.Id + 1 }, new { @class = "btn btn-primary", @style = "color:white" })
+            }
+            else
+            {
+                <button class="btn btn-default" style="color:black">Next</button>
+            }
+        </div>
+    </div>
+</div>
+<div class="row">
+   @if (Model.carComments != null)
+   {
+       foreach (var item in Model.carComments)
+       {
+        <div class="col-md-2 ">
+
+        </div>
+        <div class="post col-md-8">
+            <div class="about">
+                Posted on <i>@item.Date</i>
+                @if (item.Author != null)
+                {
+                    @:by <i>@item.Author.FullName (@item.Author.UserName)</i>
+                }
+                <div class="body">@item.Text</div>
+            </div>
+        </div>
+        <div class="col-md-2 ">
+
+        </div>
+       }
+   }
+   else
+   {
+    <div class="body">
+
+        <p>No comments</p>
+
+    </div>
+   }
+
+    <div class="col=md-12">
+
+    </div>
+    @Html.ActionLink("Create Comment", "Create", "Comments")
+</div>
