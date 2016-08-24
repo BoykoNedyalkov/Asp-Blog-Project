@@ -35,14 +35,14 @@
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - MVC Blog</p>
-			<p align="center">Total Number of visitors: @ApplicationInstance.Application["Totaluser"]</p> 
+        <footer id="footer">
+             <p align="center">&copy; @DateTime.Now.Year - Best Car Blog EVER</p>
+             <p align="center">Total Number of visitors: @ApplicationInstance.Application["Totaluser"]</p>
         </footer>
-    </div>
-
+   </div>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>
+
 </html>
