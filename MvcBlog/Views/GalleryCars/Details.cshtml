@@ -1,4 +1,4 @@
-﻿@model MvcBlog.ViewModel.GalleryCarViewModel
+@model MvcBlog.ViewModel.GalleryCarViewModel
 
 @{
     ViewBag.Title = "Details";
@@ -9,9 +9,7 @@
 <div>
     <h4>GalleryCar</h4>
     <hr />
-    @*
     
-        *@
     <div class="row">
         <div class="col-xs-1 col-md-2">
             @if (Model.Car.Id != Model.firstItemID)
@@ -29,6 +27,9 @@
 
                 <img class="img-responsive img-rounded" src=@Html.Raw(Model.Car.URL)>
                 <p>
+                    <div class="CarDetails">
+                        @Html.Raw(Model.Car.Description)
+                    </div>
                     @Html.ActionLink("Edit", "Edit", new { id = Model.Car.Id }) |
                     @Html.ActionLink("Back to List", "Index")
                 </p>
@@ -83,5 +84,5 @@
     <div class="col=md-12">
 
     </div>
-    @Html.ActionLink("Create Comment", "Create", "Comments")
+    @Html.ActionLink("Edit", "/Comments/Create", new { @class = "btn btn-primary", @style = "color:white" })
 </div>
