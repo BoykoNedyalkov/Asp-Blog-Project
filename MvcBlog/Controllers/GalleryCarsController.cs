@@ -8,6 +8,8 @@ using System.Web;
 using System.Web.Mvc;
 using MvcBlog.Models;
 using MvcBlog.ViewModel;
+using PagedList;
+using PagedList.Mvc;
 
 namespace MvcBlog.Controllers
 {
@@ -19,13 +21,16 @@ namespace MvcBlog.Controllers
         
 
         // GET: GalleryCars
-        public ActionResult Index()
+        public ActionResult Index(int page = 1, int pageSize = 3)
         {
             var cars = db.GalleryCars.Include(g => g.Id);
-            var carLinks = db.GalleryCars.Include(g =>g.Id);
+            var carLinks = db.GalleryCars.Include(g => g.Id);
+            List<GalleryCar> galleryCars = db.GalleryCars.ToList();
+            PagedList<GalleryCar> singlePage = new PagedList<GalleryCar>(galleryCars, page, pageSize);
             this.ViewBag.CarLinks = carLinks;
-            return View(db.GalleryCars.ToList());
+            return View(singlePage);
         }
+
 
         // GET: GalleryCars/Details/5
         public ActionResult Details(int? id)
