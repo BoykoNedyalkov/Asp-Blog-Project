@@ -1,4 +1,6 @@
-﻿@model IEnumerable<MvcBlog.Models.GalleryCar>
+@using PagedList;
+@using PagedList.Mvc;
+@model IPagedList<MvcBlog.Models.GalleryCar>
 
 @{
     ViewBag.Title = "Index";
@@ -29,3 +31,13 @@
     }
 </div>
    
+<div class="col-sm-10">
+    <div class="center">
+        <a>
+            @Html.PagedListPager(Model, page => Url.Action("Index", new { page, pageSize = Model.PageSize }))
+            Showing @Model.FirstItemOnPage to @Model.LastItemOnPage
+            of @Model.TotalItemCount galleryCars
+        </a>
+        <br />
+    </div>
+</div>  
