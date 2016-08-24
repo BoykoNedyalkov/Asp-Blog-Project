@@ -12,7 +12,6 @@ namespace MvcBlog.Controllers
 {
     public class CommentsController : Controller
     {
-
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Comments
@@ -47,13 +46,13 @@ namespace MvcBlog.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Text,Date")] Comment comment)
-        { 
+        public ActionResult Create([Bind(Include = "Id,Text,PostId,AuthorId,AuthorName,Date")] Comment comment)
+        {
             if (ModelState.IsValid)
             {
                 db.Comments.Add(comment);
                 db.SaveChanges();
-                return RedirectToAction("Details");
+                return RedirectToAction("Index");
             }
 
             return View(comment);

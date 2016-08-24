@@ -25,22 +25,6 @@ select,
 textarea {
     max-width: 280px;
 }
-
-.CarDetails{
-    background: #DDD;
-    border-radius: 5px;
-    font-size: 12pt; 
-    padding: 10px;
-}
-
-.CarDetails:hover{
-    background: #eaf304;
-    font-size: 14pt;
-    border-style:solid;
-    border-width: 3px;
-    border-radius: 10px;
-    border-color: #1627ed;
-}
 #Body{
     max-width:100%;
 }
@@ -64,4 +48,20 @@ textarea {
 }
 textarea{
     width:100%;
+}
+
+.CarDetails{
+    background: #DDD;
+    border-radius: 5px;
+    font-size: 12pt; 
+    padding: 10px;
+}
+
+.CarDetails:hover{
+    background: #eaf304;
+    font-size: 14pt;
+    border-style:solid;
+    border-width: 3px;
+    border-radius: 10px;
+    border-color: #1627ed;
 }

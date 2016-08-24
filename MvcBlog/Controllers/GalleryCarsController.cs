@@ -18,7 +18,7 @@ namespace MvcBlog.Controllers
     {
 
         private ApplicationDbContext db = new ApplicationDbContext();
-        
+
 
         // GET: GalleryCars
         public ActionResult Index(int page = 1, int pageSize = 3)
@@ -30,7 +30,6 @@ namespace MvcBlog.Controllers
             this.ViewBag.CarLinks = carLinks;
             return View(singlePage);
         }
-
 
         // GET: GalleryCars/Details/5
         public ActionResult Details(int? id)
