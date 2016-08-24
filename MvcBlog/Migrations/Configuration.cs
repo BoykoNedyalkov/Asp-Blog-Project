@@ -45,11 +45,11 @@ namespace MVCBlog.Migrations
                 CreatePost(context,
                     title: "Ford to make autonomous cars for ride-hailing, ride-sharing by 2021",
                     body: @"Ford Motor Co. today said it plans to introduce an autonomous vehicle by 2021 for
-                            use in a ride-hailing or ride-sharing service. Ford said the vehicle would be ìspecifically
-                            designed for commercial mobility servicesî and built in high volumes. ìFord is going to be 
-                            mass-producing vehicles with full autonomy in five years,î CEO Mark Fields said at an event
-                            in Silicon Valley that was broadcast online. ìThereís going to be no steering wheel, thereís
-                            not going to be a gas pedal, thereís not going to be a brake pedal and of course a driver is
+                            use in a ride-hailing or ride-sharing service. Ford said the vehicle would be ‚Äúspecifically
+                            designed for commercial mobility services‚Äù and built in high volumes. ‚ÄúFord is going to be 
+                            mass-producing vehicles with full autonomy in five years,‚Äù CEO Mark Fields said at an event
+                            in Silicon Valley that was broadcast online. ‚ÄúThere‚Äôs going to be no steering wheel, there‚Äôs
+                            not going to be a gas pedal, there‚Äôs not going to be a brake pedal and of course a driver is
                             not going to be required.",
                     date: new DateTime(2016, 05, 11, 08, 22, 03),
                     authorUsername: "merry@gmail.com"
@@ -67,10 +67,10 @@ namespace MVCBlog.Migrations
                     title: "For automakers, Detroit's Dream Cruise should be prime turf to recruit engineers, designers.",
                     body: @"Earlier this year, Automotive News launched a new publication, Fixed Ops Journal, which
                             covers the issues facing managers of the parts, body shop and service departments at new-car dealerships.
-                            One central theme that appears over and over again in the magazine, as well as in Automotive Newsí
+                            One central theme that appears over and over again in the magazine, as well as in Automotive News‚Äô
                             reporting on the auto industry, is that from the new-car dealer to the manufacturer -- and suppliers,
                             too -- everyone needs more help. Few companies, it seems, can find enough new employees to design, develop
-                            and engineer tomorrowís vehicles, advanced powertrains and components. New-car dealers have been in constant
+                            and engineer tomorrow‚Äôs vehicles, advanced powertrains and components. New-car dealers have been in constant
                             need of technicians for 20 years. Suppliers need every discipline from battery experts to chemists to code
                             writers.",
                     date: new DateTime(2016, 02, 18, 22, 14, 38),
@@ -91,12 +91,12 @@ namespace MVCBlog.Migrations
                     title: "The McLaren 570GT MSO comes with added gold",
                     body: @"Ladies and gents, meet the first McLaren 570GT to get the MSO treatment.
                             That stands for McLaren Special Operations, if you need a reminder. 
-                            So what youíre seeing here is a 570 thatís just a little bit more, well, special than the rest.
-                            It may have ëGTí in its name, but the MSO team have decided it definitely needs more noise.
-                            So thereís a new titanium exhaust system, which is not only 30 per cent lighter than the stainless steel 
-                            item it replaces, but the provider of an ìimproved aural experienceî, too. Good. Not content with titillating
-                            our ears, MSO is going for our eyes too. The new exhaust gets a set of new heat shields. Thatís a more
-                            exciting addition than it sounds, for they are finished in a golden titanium nitride tint. Itís a superb 
+                            So what you‚Äôre seeing here is a 570 that‚Äôs just a little bit more, well, special than the rest.
+                            It may have ‚ÄòGT‚Äô in its name, but the MSO team have decided it definitely needs more noise.
+                            So there‚Äôs a new titanium exhaust system, which is not only 30 per cent lighter than the stainless steel 
+                            item it replaces, but the provider of an ‚Äúimproved aural experience‚Äù, too. Good. Not content with titillating
+                            our ears, MSO is going for our eyes too. The new exhaust gets a set of new heat shields. That‚Äôs a more
+                            exciting addition than it sounds, for they are finished in a golden titanium nitride tint. It‚Äôs a superb 
                             nod to a similar treatment in the old McLaren F1. And more superb yet given the shields change through blue
                             and purple as they heat up and cool down.",
                     date: new DateTime(2016, 06, 30, 17, 36, 52),
@@ -104,7 +104,7 @@ namespace MVCBlog.Migrations
                 );
                 CreatePost(context,
                    title: "Americans, this is your new Honda Civic",
-                   body: @"And it's being built in Britain. Don't say we never did anything for you. Welcome, Americans, to your brand-new Honda Civic hatchback. Built (probably very well) by the fine men, women and machines of Swindon, no less, itíll arrive in dealers this ëfallí. Whenever that is. Developed by Hondaís R&D teams in Europe and Japan, the new Civic promises much. The look is bold (identical to the show car we saw at this yearís Geneva Motor Show), and the handling is touted as ëworld-classí. In the US itís available with just the one engine ñ a direct-injection 1.5-litre turbocharged four with up to 180bhp and 162lb ft ñ across five trim levels. When the new Civic eventually reaches Europe sometime next year, expect diesels and a little 1.0-litre triple. A new Type-R, this time also available in the US, will follow. Good. 
+                   body: @"And it's being built in Britain. Don't say we never did anything for you. Welcome, Americans, to your brand-new Honda Civic hatchback. Built (probably very well) by the fine men, women and machines of Swindon, no less, it‚Äôll arrive in dealers this ‚Äòfall‚Äô. Whenever that is. Developed by Honda‚Äôs R&D teams in Europe and Japan, the new Civic promises much. The look is bold (identical to the show car we saw at this year‚Äôs Geneva Motor Show), and the handling is touted as ‚Äòworld-class‚Äô. In the US it‚Äôs available with just the one engine ‚Äì a direct-injection 1.5-litre turbocharged four with up to 180bhp and 162lb ft ‚Äì across five trim levels. When the new Civic eventually reaches Europe sometime next year, expect diesels and a little 1.0-litre triple. A new Type-R, this time also available in the US, will follow. Good. 
 ",
                    date: new DateTime(2016, 06, 30, 17, 36, 52),
                    authorUsername: "merry@gmail.com"
@@ -113,41 +113,70 @@ namespace MVCBlog.Migrations
                    title: "The best images from this month's Top Gear magazine",
                    body: @"Road trips special: DB11 across Europe, GT-R in Iceland and Disco Volante Spyder in Italy.
                         In the September issue of Top Gear magazine, we hit the road for our annual summer road trip adventures.
-                        After a, erm, ëslightly strainedí few months with Europe, we turn cultural attaches, cross over the channel
+                        After a, erm, ‚Äòslightly strained‚Äô few months with Europe, we turn cultural attaches, cross over the channel
                         and take the new 600bhp Aston Martin DB11 for a 2,500-mile trip across the continent. As a perfect example
                         of what the UK stands for in terms of design, creativity, engineering and technology, we find out if the
                         new DB11 can smooth things over with our European neighbours.",
                    date: new DateTime(2016, 06, 30, 17, 36, 52),
                    authorUsername: "merry@gmail.com"
                );
+               
                 CreateGalleryCar(context,
                     title: "Mercedes AMG",
-                    url: @" http://www.topgear.com/sites/default/files/styles/fit_1960x1102/public/images/news-article/carousel/2016/02/ff21a0e4ae2274ad672c3402bf360e46/7mercc43coupefeb16.jpg?itok=__MERSSW",
-                    description: null);
+                    url: @" http://media.snimka.bg/s1/5543/037330567.jpg",
+                    description: "<b>Year:</b> 2014;</br><b>Engine:</b> 6.2 Liters, 571Hp;</br><b>Acceleration 0-100km/h:</b> 3.7sec;</br><b>Top speed:</b> 320 km/h;");
+                
+                CreateGalleryCar(context,
+                    title: "Chevrolet Camaro",
+                    url: @" http://media.snimka.bg/s1/5543/037330568.jpg",
+                    description: "<b>Year:</b> 2013;</br><b>Engine:</b> 6.2 Liters, 432Hp;</br><b>Acceleration 0-100km/h:</b> 5.2sec;</br><b>Top speed:</b> 250 km/h;");
+
                 CreateGalleryCar(context,
                     title: "Alfa Romeo 4C Coupe",
-                    url: @" https://raw.githubusercontent.com/BoykoNedyalkov/Car-Blog-SoftUni/master/Views/GalleryCars/Alfa%20Romeo%204C.jpg",
-                    description: null);
+                    url: @" http://media.snimka.bg/s1/5543/037330569.jpg",
+                    description: "<b>Year:</b> 2015;</br><b>Engine:</b> 1.7 Liters, 240Hp;</br><b>Acceleration 0-100km/h:</b> 4.5sec;</br><b>Top speed:</b> 257 km/h;");
+
                 CreateGalleryCar(context,
-                    title: "BMW 5-Series",
-                    url: @" https://raw.githubusercontent.com/BoykoNedyalkov/Car-Blog-SoftUni/master/Views/GalleryCars/BMW-5_series_F10_mp2_pic_70917.jpg",
-                    description: null);
+                    title: "Lexus LFA",
+                    url: @" http://media.snimka.bg/s1/5543/037330570.jpg",
+                    description: "<b>Year:</b> 2010;</br><b>Engine:</b> 4.8 Liters, 560Hp;</br><b>Acceleration 0-100km/h:</b> 3.7sec;</br><b>Top speed:</b> 326 km/h;");
+
                 CreateGalleryCar(context,
                     title: "Cadillac CTS 2017",
-                    url: @" https://raw.githubusercontent.com/BoykoNedyalkov/Car-Blog-SoftUni/master/Views/GalleryCars/Cadillac-CTS-079.jpg",
-                    description: null);
-                CreateGalleryCar(context,
-                    title: "Volov S90",
-                    url: @" https://raw.githubusercontent.com/BoykoNedyalkov/Car-Blog-SoftUni/master/Views/GalleryCars/volvo-s90-2016-front.jpg",
-                    description: null);
-                CreateGalleryCar(context,
-                    title: "Mercedes SLS",
-                    url: @" https://raw.githubusercontent.com/BoykoNedyalkov/Car-Blog-SoftUni/master/Views/GalleryCars/mercedesbenz-sls-amg-1.jpg",
-                    description: null);
+                    url: @" http://media.snimka.bg/s1/5543/037330571.jpg",
+                    description: "<b>Year:</b> 2017;</br><b>Engine:</b> 2.0 Liters, 272Hp;</br><b>Acceleration 0-100km/h:</b> 5.8sec;</br><b>Top speed:</b> Still no information available!!!");
                 
+                CreateGalleryCar(context,
+                   title: "Maserati Quattroporte",
+                   url: @" http://media.snimka.bg/s1/5543/037330660.jpg",
+                   description: "<b>Year:</b> 2017;</br><b>Engine:</b> 3.8 Liters, 350Hp;</br><b>Acceleration 0-100km/h:</b> 4.7sec;</br><b>Top speed:</b> 307 km/h;");
+
+                CreateGalleryCar(context,
+                    title: "Mercedes E350",
+                    url: @" http://media.snimka.bg/s1/5543/037330661.jpg",
+                    description: "<b>Year:</b> 2013;</br><b>Engine:</b> 3.0 Liters, 252Hp;</br><b>Acceleration 0-100km/h:</b> 6.6sec;</br><b>Top speed:</b> 250 km/h;");
+
+                CreateGalleryCar(context,
+                    title: "BMW 5-Series LCI Hybrid",
+                    url: @" http://media.snimka.bg/s1/5543/037330663.jpg",
+                    description: "<b>Year:</b> 2015;</br><b>Engine:</b> 3.0 Liters, 340Hp;</br><b>Acceleration 0-100km/h:</b> 5.9sec;</br><b>Top speed:</b> 250 km/h;");
+                /*CreateGalleryCar(context,
+                    title: "Volvo S90",
+                    url: @" http://media.snimka.bg/s1/5543/037330664.jpg",
+                    description: null);
+                CreateGalleryCar(context,
+                    title: "BMW 6-Series",
+                    url: @" http://media.snimka.bg/s1/5543/037330665.jpg",
+                    description: null);
+                CreateGalleryCar(context,
+                    title: "Mazda 6",
+                    url: @" http://media.snimka.bg/s1/5543/037330666.jpg",
+                    description: null);
+                CreateGalleryCar(context,
+                    title: "Lexus GS-350",
+                    url: @" http://media.snimka.bg/s1/5543/037330667.jpg",
+                    description: null);*/
                     
-
-
                 context.SaveChanges();
 
                 CreateComment(context,
