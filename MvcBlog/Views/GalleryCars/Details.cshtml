@@ -62,7 +62,7 @@
     <br />
 </div>
 
-   @if (Model.carComments != null)
+   @if (Model.carComments.Where( c => c.Post.Id == Model.Car.Id).FirstOrDefault() != null)
    {
        foreach (var item in Model.carComments)
        {
@@ -103,13 +103,27 @@
    }
    else
    {
-            <div class="body">
-
-                <p>No comments</p>
+    <div class="row">
+       <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <div class="post">
+                    <p>No comments</p>
+                </div>
+            </div>
+        <div class="col-md-8"></div>
+        <div class="row">
+            <div class="col-md-2">
 
             </div>
-            }
-
-            <div class="col=md-12">
+        </div>
+           
+            <div class="col-md-2">
 
             </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2"></div>
+            @Html.ActionLink("Write the first comment", "Create", "Comments", new { @class = "btn btn-primary col-md-6", @style = "color:white" })
+            <div class="col-md-2"></div>
+        </div>
+   }
