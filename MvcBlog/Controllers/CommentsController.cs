@@ -48,11 +48,14 @@ namespace MvcBlog.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,Text,PostId,AuthorId,AuthorName,Date")] Comment comment)
         {
+            var postId =(int) this.Session["postId"];
+            var postObj = db.GalleryCars.Where(p => p.Id == postId).Single();
+            comment.Post = postObj;
             if (ModelState.IsValid)
             {
                 db.Comments.Add(comment);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Home");
             }
 
             return View(comment);

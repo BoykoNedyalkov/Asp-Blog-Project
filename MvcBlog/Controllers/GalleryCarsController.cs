@@ -43,6 +43,7 @@ namespace MvcBlog.Controllers
             {
                 return HttpNotFound();
             }
+            this.Session["postId"] = galleryCar.Id;
             var myViewModel = new GalleryCarViewModel();
             var lastItem = db.GalleryCars.OrderByDescending(x => x.Id).First();
             var firstItem = db.GalleryCars.OrderBy(x => x.Id).First();
@@ -51,6 +52,7 @@ namespace MvcBlog.Controllers
             myViewModel.firstItemID = firstItem.Id;
             myViewModel.Car = galleryCar;
             myViewModel.carComments = carComments;
+            ViewBag.PostId = galleryCar.Id;
             return View(myViewModel);
         }
 

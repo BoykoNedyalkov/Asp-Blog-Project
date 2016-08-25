@@ -215,7 +215,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\ApplicationUser.cs" />
+    <Compile Include="Views\ApplicationUser.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\GalleryCar.cs" />
@@ -302,11 +302,11 @@
     <Content Include="Views\Videos\Details.cshtml" />
     <Content Include="Views\Videos\Edit.cshtml" />
     <Content Include="Views\Videos\Index.cshtml" />
-    <Content Include="Views\GalleryCars\Comments\Create.cshtml" />
-    <Content Include="Views\GalleryCars\Comments\Delete.cshtml" />
-    <Content Include="Views\GalleryCars\Comments\Details.cshtml" />
-    <Content Include="Views\GalleryCars\Comments\Edit.cshtml" />
-    <Content Include="Views\GalleryCars\Comments\Index.cshtml" />
+    <Content Include="Views\Comments\Create.cshtml" />
+    <Content Include="Views\Comments\Delete.cshtml" />
+    <Content Include="Views\Comments\Details.cshtml" />
+    <Content Include="Views\Comments\Edit.cshtml" />
+    <Content Include="Views\Comments\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
