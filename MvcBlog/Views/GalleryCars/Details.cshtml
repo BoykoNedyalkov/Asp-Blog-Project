@@ -6,12 +6,12 @@
 
 <h2>Details</h2>
 
-<div>
+<div class="galleryCarDiv">
     <h4>GalleryCar</h4>
     <hr />
     
     <div class="row">
-        <div class="col-xs-1 col-md-2">
+        <div class="col-md-2">
             @if (Model.Car.Id != Model.firstItemID)
             {
                 @Html.ActionLink("Previous", "Details", new { id = Model.Car.Id - 1 }, new { @class = "btn btn-primary", @style = "color:white" })
@@ -21,15 +21,13 @@
                 <button class="btn btn-default" style="color:black">Previous</button>               
             }
         </div>
-        <div class="col-xs-6 col-md-8">
+        <div class="col-md-8">
             <h2 class="title">@Model.Car.Title</h2>
             <div class="body">
 
-                <img class="img-responsive img-rounded" src=@Html.Raw(Model.Car.URL)>
+                <img class="img-rounded"src=@Html.Raw(Model.Car.URL) align="middle">
                 <p>
-                    <div class="CarDetails">
-                        @Html.Raw(Model.Car.Description)
-                    </div>
+                   
                     @Html.ActionLink("Edit", "Edit", new { id = Model.Car.Id }) |
                     @Html.ActionLink("Back to List", "Index")
                 </p>
@@ -37,7 +35,7 @@
             </div>
 
         </div>
-        <div class="col-xs-1 col-md-2">
+        <div class="col-md-2">
             @if (Model.Car.Id != Model.lastItemID)
             {
                 @Html.ActionLink("Next", "Details", new { id = Model.Car.Id + 1 }, new { @class = "btn btn-primary", @style = "color:white" })
@@ -48,41 +46,70 @@
             }
         </div>
     </div>
+    <br />
+    <div class="row">
+        
+        <div class="col-md-2">
+
+        </div>
+        <div class="col-md-6 CarDetails">
+            @Html.Raw(Model.Car.Description)
+        </div>
+        <div class="col-md-2">
+
+        </div>
+    </div>
+    <br />
 </div>
-<div class="row">
+
    @if (Model.carComments != null)
    {
        foreach (var item in Model.carComments)
        {
-        <div class="col-md-2 ">
-
-        </div>
-        <div class="post col-md-8">
-            <div class="about">
-                Posted on <i>@item.Date</i>
-                @if (item.Author != null)
-                {
-                    @:by <i>@item.Author.FullName (@item.Author.UserName)</i>
-                }
-                <div class="body">@item.Text</div>
+        <div class="row">
+            <div class="col-md-2 ">
+                
             </div>
-        </div>
-        <div class="col-md-2 ">
+            <div class="post col-md-7">
+                <div class="about">
+                    Posted on <i>@item.Date</i>
+                    @if (item.Author != null)
+                    {
+                        @:by <i>@item.Author.FullName (@item.Author.UserName)</i>
+                }
+                    <div class="body">@item.Text</div>
+                </div>
+            </div>
+            <div class="col-md-2 ">
+               
+            </div>
+            
+            </div>
+            <br>
 
-        </div>
        }
+       <div class="row">
+           <div class="col-md-2">
+
+           </div>
+            
+                @Html.ActionLink("Create Comment", "Create", "Comments", new { @class = "btn btn-primary col-md-7", @style = "color:white" })
+            
+
+           <div class="col-md-2">
+
+           </div>
+       </div>
    }
    else
    {
-    <div class="body">
+            <div class="body">
 
-        <p>No comments</p>
+                <p>No comments</p>
 
-    </div>
-   }ss
+            </div>
+            }
 
-    <div class="col=md-12">
+            <div class="col=md-12">
 
-    </div>
-    @Html.ActionLink("Create Comment", "Create", "Comments")
-</div>
+            </div>

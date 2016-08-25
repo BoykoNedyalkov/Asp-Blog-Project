@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using MvcBlog.Models;
+using Microsoft.AspNet.Identity;
 
 namespace MvcBlog.Controllers
 {
@@ -48,9 +49,13 @@ namespace MvcBlog.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,Text,PostId,AuthorId,AuthorName,Date")] Comment comment)
         {
+            
             var postId =(int) this.Session["postId"];
             var postObj = db.GalleryCars.Where(p => p.Id == postId).Single();
             comment.Post = postObj;
+            var authorId = User.Identity.GetUserId();
+            var authorObj = db.Users.Where(u => u.Id == authorId).Single();
+            comment.Author = authorObj;
             if (ModelState.IsValid)
             {
                 db.Comments.Add(comment);

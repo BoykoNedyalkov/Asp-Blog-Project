@@ -52,13 +52,14 @@ textarea{
 
 .CarDetails{
     background: #DDD;
-    max-width: 86%;
+    /*max-width: 86%;*/
     border-radius: 5px;
     font-size: 12pt; 
     padding: 10px;
+    margin-bottom: 20px;
 }
 
-.CarDetails:hover{
+/*.CarDetails:hover{
     background: #eaf304;
     font-size: 14pt;
     border-style:solid;
@@ -66,6 +67,7 @@ textarea{
     border-radius: 10px;
     border-color: #1627ed;
 }
+    */
 #footer{
     position: relative;
     clear: both;
