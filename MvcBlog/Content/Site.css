@@ -52,6 +52,7 @@ textarea{
 
 .CarDetails{
     background: #DDD;
+    max-width: 86%;
     border-radius: 5px;
     font-size: 12pt; 
     padding: 10px;
@@ -64,4 +65,8 @@ textarea{
     border-width: 3px;
     border-radius: 10px;
     border-color: #1627ed;
+}
+#footer{
+    position: relative;
+    clear: both;
 }
