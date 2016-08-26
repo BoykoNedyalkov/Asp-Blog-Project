@@ -5,6 +5,9 @@ using System.Web;
 using System.Web.Mvc;
 using System.Data.Entity;
 using MvcBlog.Models;
+using System.Net.Mail;
+using System.Net;
+using System.Threading.Tasks;
 
 namespace MvcBlog.Controllers
 {
@@ -35,7 +38,7 @@ namespace MvcBlog.Controllers
                 message.To.Add(new MailAddress("recipient@gmail.com")); 
                 message.From = new MailAddress("sender@outlook.com");
                 message.Subject = "Your email subject";
-                message.Body = string.Format(body, model.FromName, model.FromEmail, model.Message);
+                message.Body = string.Format(body, model.Name, model.Email, model.Body);
                 message.IsBodyHtml = true;
 
                 using (var smtp = new SmtpClient())

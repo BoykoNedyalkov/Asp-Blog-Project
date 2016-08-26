@@ -15,6 +15,6 @@ namespace MvcBlog.Models
         [Required]
         [DataType(DataType.MultilineText)]
         public string Body { get; set; }
-        
+
     }
 }
