@@ -38,7 +38,7 @@ namespace MvcBlog.Controllers
                 message.To.Add(new MailAddress("recipient@gmail.com")); 
                 message.From = new MailAddress("sender@outlook.com");
                 message.Subject = "Your email subject";
-                message.Body = string.Format(body, model.Name, model.Email, model.Body);
+                message.Body = string.Format(body, model.Name, model.Email, model.Message);
                 message.IsBodyHtml = true;
 
                 using (var smtp = new SmtpClient())

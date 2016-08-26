@@ -14,7 +14,7 @@ namespace MvcBlog.Models
         public string Email { get; set; }
         [Required]
         [DataType(DataType.MultilineText)]
-        public string Body { get; set; }
+        public string Message { get; set; }
 
     }
 }
