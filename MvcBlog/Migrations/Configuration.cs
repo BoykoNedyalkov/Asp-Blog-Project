@@ -177,6 +177,22 @@ namespace MVCBlog.Migrations
                     url: @" http://media.snimka.bg/s1/5543/037330667.jpg",
                     description: null);*/
 
+                CreateVideo(context,
+                    title: "Chevrolet Camaro",
+                    url: @" http://www.youtube.com/watch?v=UrzcfGMlzbM",
+                    description: null);
+
+               /* CreateVideo(context,
+                    title: "Mercedes E-class",
+                    url: @" http://youtu.be/wO7ljRl6-WI",
+                    description: null);
+
+                CreateVideo(context,
+                    title: "Mercedes SLS AMG",
+                    url: @" http://youtu.be/7fWUiW7ALAM",
+                    description: null);
+
+    */
                 context.SaveChanges();
 
                 CreateComment(context,
@@ -268,9 +284,15 @@ namespace MVCBlog.Migrations
             comment.Date = date;
             comment.Author = context.Users.Where(u => u.UserName == authorUserName).FirstOrDefault();
             comment.Post = context.GalleryCars.Where(p => p.Id == postId).FirstOrDefault();
-            var x = true;
-            var y=  true;
             context.Comments.Add(comment);
+        }
+        private void CreateVideo(ApplicationDbContext context, string title, string url, string description)
+        {
+            var video = new Video();
+            video.Title = title;
+            video.Url = url;
+            video.Description = description;
+            context.Videos.Add(video);
         }
         
     }

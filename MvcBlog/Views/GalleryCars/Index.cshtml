@@ -23,6 +23,7 @@
                     <img class="img-responsive img-rounded" src=@Html.Raw(item.URL)>
                 </a>
             </div>
+            @if()
             @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
             @Html.ActionLink("Details", "Details", new { id = item.Id }) |
             @Html.ActionLink("Delete", "Delete", new { id = item.Id })

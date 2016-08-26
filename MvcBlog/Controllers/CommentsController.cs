@@ -37,6 +37,7 @@ namespace MvcBlog.Controllers
         }
 
         // GET: Comments/Create
+        [Authorize]
         public ActionResult Create()
         {
             return View();
@@ -47,6 +48,7 @@ namespace MvcBlog.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public ActionResult Create([Bind(Include = "Id,Text,PostId,AuthorId,AuthorName,Date")] Comment comment)
         {
             
@@ -56,6 +58,8 @@ namespace MvcBlog.Controllers
             var authorId = User.Identity.GetUserId();
             var authorObj = db.Users.Where(u => u.Id == authorId).Single();
             comment.Author = authorObj;
+            var date = DateTime.Now;
+            comment.Date = date;
             if (ModelState.IsValid)
             {
                 db.Comments.Add(comment);
@@ -67,6 +71,7 @@ namespace MvcBlog.Controllers
         }
 
         // GET: Comments/Edit/5
+        [Authorize]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -86,6 +91,7 @@ namespace MvcBlog.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public ActionResult Edit([Bind(Include = "Id,Text,PostId,AuthorId,AuthorName,Date")] Comment comment)
         {
             if (ModelState.IsValid)
@@ -98,6 +104,7 @@ namespace MvcBlog.Controllers
         }
 
         // GET: Comments/Delete/5
+        [Authorize]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -114,6 +121,7 @@ namespace MvcBlog.Controllers
 
         // POST: Comments/Delete/5
         [HttpPost, ActionName("Delete")]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {

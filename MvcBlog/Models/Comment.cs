@@ -8,6 +8,11 @@ namespace MvcBlog.Models
 {
     public class Comment
     {
+        public Comment()
+        {
+            Date = DateTime.Now;
+        }
+        
         [Key]
         public int Id { get; set; }
         [Required]
@@ -16,5 +21,6 @@ namespace MvcBlog.Models
         public GalleryCar Post { get; set; }
         public ApplicationUser Author { get; set; }
         public DateTime Date { get; set; }
+        
     }
 }

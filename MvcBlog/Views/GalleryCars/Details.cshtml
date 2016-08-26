@@ -92,8 +92,10 @@
            <div class="col-md-2">
 
            </div>
-            
-                @Html.ActionLink("Create Comment", "Create", "Comments", new { @class = "btn btn-primary col-md-7", @style = "color:white" })
+          
+           <a href="/Comments/Create">
+               <div class="col-md-8 btn btn-primary" style="color:white">Create a comment</div>
+           </a>
             
 
            <div class="col-md-2">
@@ -123,7 +125,9 @@
         </div>
         <div class="row">
             <div class="col-md-2"></div>
-            @Html.ActionLink("Write the first comment", "Create", "Comments", new { @class = "btn btn-primary col-md-6", @style = "color:white" })
+            <a href="/Comments/Create">
+                <div class="col-md-8 btn btn-primary" style="color:white">Write the first comment</div>
+            </a>
             <div class="col-md-2"></div>
         </div>
    }
