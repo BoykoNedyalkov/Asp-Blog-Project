@@ -28,6 +28,9 @@ textarea {
 #Body{
     max-width:100%;
 }
+#Message{
+    max-width:80%;
+}
 .post>h2, .post>div {
     background-color: #EEE;
     padding: 10px;

@@ -8,59 +8,72 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create",new { @class = "btn btn-primary", @style = "color:white" })
+    @Html.ActionLink("Create New", "Create", new { @class = "btn btn-primary", @style = "color:white" })
 </p>
 <table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Body)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Author)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Date)
-        </th>
-        <th></th>
-    </tr>
+    @*    <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Body)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Author)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th></th>
+        </tr>*@
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Body)
-        </td>
-        <td>
-            @if(item.Author != null)
-            {
-                @item.Author.UserName
-            }
-            else
-            {
-                <i>No Author</i>
-            }
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Date)
-        </td>
-        <td>
-            @if(item.Author.Id  == User.Identity.GetUserId() || User.IsInRole("Administrators")) { 
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id } ,new { @class = "btn btn-success", @style = "color:white" }) 
-            <br />
-            }
-            @Html.ActionLink("Details", "Details", new { id=item.Id }, new { @class = "btn btn-primary", @style = "color:white" }) 
-            <br />
-            @if (item.Author.Id == User.Identity.GetUserId() || User.IsInRole("Administrators"))
-            {
-            @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-danger", @style = "color:white" })
-            }
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <span style="font-size:15pt;"><b>Title: </b>@Html.DisplayFor(modelItem => item.Title)</span>
+                <br />
+                <br />
+
+                <b>Content: </b>
+                @Html.DisplayFor(modelItem => item.Body)
+                <br />
+                <br />
+
+                <b>Author: </b>
+                @if (item.Author != null)
+                {
+                    @item.Author.UserName
+                    <br />
+                }
+                else
+                {
+                    <i>No Author</i>
+                        <br />
+                }
+
+                <b>Posted on: </b>
+                @Html.DisplayFor(modelItem => item.Date)
+                <br />
+                <br />
+                <br />
+                <br />
+
+            </td>
+            <td>
+                @if (item.Author.Id == User.Identity.GetUserId() || User.IsInRole("Administrators"))
+                {
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-success", @style = "color:white" })
+                    <br />
+                }
+                @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-primary", @style = "color:white" })
+                <br />
+                @if (item.Author.Id == User.Identity.GetUserId() || User.IsInRole("Administrators"))
+                {
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-danger", @style = "color:white" })
+                }
+            </td>
+        </tr>
+    }
 
 </table>
