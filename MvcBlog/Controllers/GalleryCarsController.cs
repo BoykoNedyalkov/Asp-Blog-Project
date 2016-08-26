@@ -21,7 +21,7 @@ namespace MvcBlog.Controllers
 
 
         // GET: GalleryCars
-        public ActionResult Index(int page = 1, int pageSize = 3)
+        public ActionResult Index(int page = 1, int pageSize = 6)
         {
             var cars = db.GalleryCars.Include(g => g.Id);
             var carLinks = db.GalleryCars.Include(g => g.Id);
