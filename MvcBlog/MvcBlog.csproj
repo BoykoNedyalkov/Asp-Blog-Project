@@ -216,6 +216,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ContactForm.cs" />
+    <Compile Include="ViewModel\VideoViewModel.cs" />
     <Compile Include="Views\ApplicationUser.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\Comment.cs" />

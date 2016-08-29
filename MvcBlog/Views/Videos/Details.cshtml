@@ -1,4 +1,4 @@
-﻿@model MvcBlog.Models.Video
+﻿@model MvcBlog.ViewModel.VideoViewModel
 
 @{
     ViewBag.Title = "Details";
@@ -6,37 +6,125 @@
 
 <h2>Details</h2>
 
-<div>
-    <h4>Video</h4>
+<div class="galleryCarDiv">
+    <h4>GalleryCar</h4>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.VideoTitle)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.VideoTitle)
-        </dd>
+    <div class="row">
+        <div class="col-md-2">
+            @if (Model.CarVideo.Id != Model.firstItemID)
+            {
+                @Html.ActionLink("Previous", "Details", new { id = Model.CarVideo.Id - 1 }, new { @class = "btn btn-primary", @style = "color:white" })
+            }
+            else
+            {
+                <button class="btn btn-default" style="color:black">Previous</button>
+            }
+        </div>
+        <div class="col-md-8">
+            <h2 class="title">@Model.CarVideo.Title</h2>
+            <div class="body">
 
-        <dt>
-            @Html.DisplayNameFor(model => model.VideoUrl)
-        </dt>
+                <!--<img class="img-rounded" src=@*@Html.Raw(Model.CarVideo.Url)*@ align="middle">-->
+                <iframe class="img-responsive img-rounded" width="560" height="315" src="@Html.Raw(Model.CarVideo.Url)" frameborder="0" allowfullscreen align="middle"></iframe>
+                <p>
 
-        <dd>
-            @Html.DisplayFor(model => model.VideoUrl)
-        </dd>
+                    @Html.ActionLink("Edit", "Edit", new { id = Model.CarVideo.Id }) |
+                    @Html.ActionLink("Back to List", "Index")
+                </p>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.VideoDescription)
-        </dt>
+            </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.VideoDescription)
-        </dd>
+        </div>
+        <div class="col-md-2">
+            @if (Model.CarVideo.Id != Model.lastItemID)
+            {
+                @Html.ActionLink("Next", "Details", new { id = Model.CarVideo.Id + 1 }, new { @class = "btn btn-primary", @style = "color:white" })
+            }
+            else
+            {
+                <button class="btn btn-default" style="color:black">Next</button>
+            }
+        </div>
+    </div>
+    <br />
+    <div class="row">
 
-    </dl>
+        <div class="col-md-2">
+
+        </div>
+        <div class="col-md-6 CarDetails">
+            @Html.Raw(Model.CarVideo.Description)
+        </div>
+        <div class="col-md-2">
+
+        </div>
+    </div>
+    <br />
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.VideoId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+@if (Model.videoComments.Where(c => c.VideoPost.Id == Model.CarVideo.Id).FirstOrDefault() != null)
+{
+    foreach (var item in Model.videoComments)
+    {
+        <div class="row">
+            <div class="col-md-2 ">
+
+            </div>
+            <div class="post col-md-7">
+                <div class="about">
+                    Posted on <i>@item.Date</i>
+                    @if (item.Author != null)
+                    {
+                        @:by <i>@item.Author.FullName (@item.Author.UserName)</i>
+                }
+                    <div class="body">@item.Text</div>
+                </div>
+            </div>
+            <div class="col-md-2 ">
+
+            </div>
+
+        </div>
+        <br>
+
+    }
+    <div class="row">
+        <div class="col-md-2">
+
+        </div>
+
+        @Html.ActionLink("Create Comment", "Create", "Comments", new { @class = "btn btn-primary col-md-7", @style = "color:white" })
+
+
+        <div class="col-md-2">
+
+        </div>
+    </div>
+}
+else
+{
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="post">
+                <p>No comments</p>
+            </div>
+        </div>
+        <div class="col-md-8"></div>
+        <div class="row">
+            <div class="col-md-2">
+
+            </div>
+        </div>
+
+        <div class="col-md-2">
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2"></div>
+        @Html.ActionLink("Write the first comment", "Create", "Comments", new { @class = "btn btn-primary col-md-6", @style = "color:white" })
+        <div class="col-md-2"></div>
+    </div>
+}

@@ -178,21 +178,21 @@ namespace MVCBlog.Migrations
                     description: null);*/
 
                 CreateVideo(context,
-                    title: "Chevrolet Camaro",
-                    url: @" http://www.youtube.com/watch?v=UrzcfGMlzbM",
-                    description: null);
-
-               /* CreateVideo(context,
-                    title: "Mercedes E-class",
-                    url: @" http://youtu.be/wO7ljRl6-WI",
-                    description: null);
+                    videoTitle: "Chevrolet Camaro",
+                    videoUrl: @" https://www.youtube.com/embed/z9Lvtv0MP_4",
+                    videoDescription: null);
 
                 CreateVideo(context,
-                    title: "Mercedes SLS AMG",
-                    url: @" http://youtu.be/7fWUiW7ALAM",
-                    description: null);
+                    videoTitle: "Mercedes E-class",
+                    videoUrl: @" https://www.youtube.com/embed/wO7ljRl6-WI",
+                    videoDescription: null);
 
-    */
+                CreateVideo(context,
+                    videoTitle: "Mercedes SLS AMG",
+                    videoUrl: @" https://www.youtube.com/embed/7fWUiW7ALAM",
+                    videoDescription: null);
+
+                
                 context.SaveChanges();
 
                 CreateComment(context,
@@ -267,6 +267,15 @@ namespace MVCBlog.Migrations
             context.Posts.Add(post);
         }
 
+        private void CreateVideo(ApplicationDbContext context, string videoTitle, string videoUrl, string videoDescription)
+        {
+            var carVideo = new Video();
+            carVideo.Title = videoTitle;
+            carVideo.Url = videoUrl;
+            carVideo.Description = videoDescription;
+            context.Videos.Add(carVideo);
+        }
+
         private void CreateGalleryCar(ApplicationDbContext context,
             string title, string url, string description)
         {
@@ -286,14 +295,5 @@ namespace MVCBlog.Migrations
             comment.Post = context.GalleryCars.Where(p => p.Id == postId).FirstOrDefault();
             context.Comments.Add(comment);
         }
-        private void CreateVideo(ApplicationDbContext context, string title, string url, string description)
-        {
-            var video = new Video();
-            video.Title = title;
-            video.Url = url;
-            video.Description = description;
-            context.Videos.Add(video);
-        }
-        
     }
 }
