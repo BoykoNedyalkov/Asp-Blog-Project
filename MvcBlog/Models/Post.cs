@@ -20,6 +20,7 @@ namespace MvcBlog.Models
         public string Body { get; set; }
 
         [Required]
+        [DataType(DataType.Date)]
         public DateTime Date { get; set; }
 
         public ApplicationUser Author { get; set; }
