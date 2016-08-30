@@ -19,6 +19,7 @@ namespace MvcBlog.Models
         [MaxLength(140)]
         public string Text { get; set; }
         public GalleryCar Post { get; set; }
+        public Video VideoPost { get; set; }
         public ApplicationUser Author { get; set; }
         public DateTime Date { get; set; }
         

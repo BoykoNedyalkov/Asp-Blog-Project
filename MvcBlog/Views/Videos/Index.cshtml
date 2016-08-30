@@ -1,66 +1,47 @@
-﻿@model IEnumerable<MvcBlog.Models.Video>
+﻿@using PagedList;
+@using PagedList.Mvc;
+@model IPagedList<MvcBlog.Models.Video>
 
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Videos</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.VideoTitle)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.VideoUrl)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.VideoDescription)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.VideoTitle)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.VideoUrl)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.VideoDescription)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.VideoId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.VideoId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.VideoId })
-        </td>
-    </tr>
-}
 
-</table>
 <div class="row">
     @foreach (var item in Model)
     {
         <div class="col-xs-6 col-md-4">
-            <h2 class="title">@item.VideoTitle</h2>
+            <h2 class="title">@item.Title</h2>
             <div class="body">
-                <a href="@Url.Action("Details", new { id=item.VideoId })">
-                    <img class="img-responsive img-rounded" src=@Html.Raw(item.VideoUrl)>
+                <a href="@Url.Action("Details", new { id=item.Id })">
+                    <iframe class="img-responsive img-rounded" width="560" height="315" src="@Html.Raw(item.Url)" frameborder="0" allowfullscreen></iframe>
                 </a>
             </div>
-            @Html.ActionLink("Edit", "Edit", new { id = item.VideoId }) |
-            @Html.ActionLink("Details", "Details", new { id = item.VideoId }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.VideoId })
-        </div>
 
+            @if (User.IsInRole("Administrators"))
+            {
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-success", @style = "color:white" })
+
+            }
+            @*@Html.ActionLink("Edit", "Edit", new { id = item.Id }) *@
+            @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-primary", @style = "color:white" })
+
+
+            @if (User.IsInRole("Administrators"))
+            {
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-danger", @style = "color:white" })
+
+            }
+        </div>
     }
 </div>
-@*
+
 <div class="col-sm-10">
     <div class="center">
 
@@ -70,5 +51,53 @@
 
         <br />
     </div>
-</div>  
+</div>
+
+@*<p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.VideoTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VideoUrl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VideoDescription)
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.VideoTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VideoUrl)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VideoDescription)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.VideoId }) |
+                @Html.ActionLink("Details", "Details", new { id=item.VideoId }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.VideoId })
+            </td>
+        </tr>
+    }
+    </table>
+
+    <div class="col-sm-10">
+        <div class="center">
+
+            @Html.PagedListPager(Model, page => Url.Action("Index", new { page, pageSize = Model.PageSize }))
+            Showing @Model.FirstItemOnPage to @Model.LastItemOnPage
+            of @Model.TotalItemCount galleryCars
+
+            <br />
+        </div>
+    </div>
 *@

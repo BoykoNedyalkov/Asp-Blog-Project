@@ -14,24 +14,28 @@
         <h4>Send your message.</h4>
         <hr />
         <div class="form-group" id="contact-input">
-            @Html.LabelFor(m => m.Name, new { @class = "col-md-2 control-label" })
             <div class="col-md-10">
-                @Html.EditorFor(m => m.Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(m => m.Name, new { htmlAttributes = new { @class = "form-control", @placeholder = "Your Name" } })
                 @Html.ValidationMessageFor(m => m.Name)
             </div>
         </div>
         <div class="form-group">
-            @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
             <div class="col-md-10">
-                @Html.EditorFor(m => m.Email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(m => m.Email, new { htmlAttributes = new { @class = "form-control", @placeholder = "Email Address" } })
                 @Html.ValidationMessageFor(m => m.Email)
             </div>
         </div>
         <div class="form-group">
-
-            @Html.LabelFor(m => m.Message, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(m => m.Message, new { htmlAttributes = new { @class = "form-control", @rows = "20" } })
+                @Html.EditorFor(m => m.Message, new
+           {
+               htmlAttributes = new
+               {
+                   @class = "form-control",
+                   @placeholder = "Enter your message for us here.",
+                   @rows = "20"
+               }
+           })
                 @Html.ValidationMessageFor(m => m.Message, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -42,7 +46,10 @@
         </div>
     </div>
 }
-
+<br />
+<br />
+<br />
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4148.960397027812!2d23.3481621527512!3d42.66648274236138!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40aa85cca4a719b7%3A0xdf53fcbcd8e758d7!2z0KHQvtGE0YLRg9C10YDQtdC9INGD0L3QuNCy0LXRgNGB0LjRgtC10YIg0KHQvtGE0YLQo9C90Lg!5e0!3m2!1sbg!2sbg!4v1472465475374" width="750" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }

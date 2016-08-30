@@ -35,7 +35,7 @@ namespace MvcBlog.Controllers
             {
                 var body = "<p>Email From: {0} ({1})</p><p>Message:</p><p>{2}</p>";
                 var message = new MailMessage();
-                message.To.Add(new MailAddress("recipient@gmail.com")); 
+                message.To.Add(new MailAddress("teambik2016@gmail.com")); 
                 message.From = new MailAddress("sender@outlook.com");
                 message.Subject = "Your email subject";
                 message.Body = string.Format(body, model.Name, model.Email, model.Message);

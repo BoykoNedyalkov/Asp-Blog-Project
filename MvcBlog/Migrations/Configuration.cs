@@ -152,47 +152,82 @@ namespace MVCBlog.Migrations
                    description: "<b>Year:</b> 2017;</br><b>Engine:</b> 3.8 Liters, 350Hp;</br><b>Acceleration 0-100km/h:</b> 4.7sec;</br><b>Top speed:</b> 307 km/h;");
 
                 CreateGalleryCar(context,
+                    title: "Alfa Romeo Giulia",
+                    url: @" http://media.snimka.bg/s1/5551/037345848.jpg",
+                    description: "<b>Year:</b> 2016;</br><b>Engine:</b> 2.2 Liters, 180Hp;</br><b>Acceleration 0-100km/h:</b> 7.2sec;</br><b>Top speed:</b> 230 km/h;");
+
+                CreateGalleryCar(context,
+                    title: "BMW 3er",
+                    url: @" http://media.snimka.bg/s1/5551/037345853.jpg",
+                    description: "<b>Year:</b> 2015;</br><b>Engine:</b> 2.0 Liters, 184Hp;</br><b>Acceleration 0-100km/h:</b> 7.2sec;</br><b>Top speed:</b> 235 km/h;");
+
+                CreateGalleryCar(context,
+                    title: "Mercedes C-class",
+                    url: @" http://media.snimka.bg/s1/5551/037345854.jpg",
+                    description: "<b>Year:</b> 2014;</br><b>Engine:</b> 2.0 Liters, 184Hp;</br><b>Acceleration 0-100km/h:</b> 7.3sec;</br><b>Top speed:</b> 235 km/h;");
+
+                CreateGalleryCar(context,
+                    title: "Lexus IS",
+                    url: @" http://media.snimka.bg/s1/5551/037345855.jpg",
+                    description: "<b>Year:</b> 2013;</br><b>Engine:</b> 2.5 Liters, 208Hp;</br><b>Acceleration 0-100km/h:</b> 8.1sec;</br><b>Top speed:</b> 225 km/h;");
+
+                CreateGalleryCar(context,
+                    title: "Jaguar XE",
+                    url: @" http://media.snimka.bg/s1/5551/037345856.jpg",
+                    description: "<b>Year:</b> 2015;</br><b>Engine:</b> 2.0 Liters, 200Hp;</br><b>Acceleration 0-100km/h:</b> 7.7sec;</br><b>Top speed:</b> 237 km/h;");
+
+                CreateGalleryCar(context,
                     title: "Mercedes E350",
                     url: @" http://media.snimka.bg/s1/5543/037330661.jpg",
                     description: "<b>Year:</b> 2013;</br><b>Engine:</b> 3.0 Liters, 252Hp;</br><b>Acceleration 0-100km/h:</b> 6.6sec;</br><b>Top speed:</b> 250 km/h;");
 
                 CreateGalleryCar(context,
-                    title: "BMW 5-Series LCI Hybrid",
+                    title: "BMW 5-Series LCI",
                     url: @" http://media.snimka.bg/s1/5543/037330663.jpg",
                     description: "<b>Year:</b> 2015;</br><b>Engine:</b> 3.0 Liters, 340Hp;</br><b>Acceleration 0-100km/h:</b> 5.9sec;</br><b>Top speed:</b> 250 km/h;");
+               
                 /*CreateGalleryCar(context,
-                    title: "Volvo S90",
+                    title: "Volvo S90 Hybrid",
                     url: @" http://media.snimka.bg/s1/5543/037330664.jpg",
-                    description: null);
+                    description: "<b>Year:</b> 2016;</br><b>Engine:</b> 2.0 Liters, 320Hp;</br><b>Acceleration 0-100km/h:</b> 5.8sec;</br><b>Top speed:</b> Still no information available!!!");*/
+
+                /*CreateGalleryCar(context,
+                    title: "Jaguar XF",
+                    url: @" http://media.snimka.bg/s1/5551/037345852.jpg",
+                    description: "<b>Year:</b> 2015;</br><b>Engine:</b> 3.0 Liters, 320Hp;</br><b>Acceleration 0-100km/h:</b> 5.4sec;</br><b>Top speed:</b> 250 km/h;");*/
+
+                /*CreateGalleryCar(context,
+                    title: "Lexus GS-350",
+                    url: @" http://media.snimka.bg/s1/5543/037330667.jpg",
+                    description: "<b>Year:</b> 2012;</br><b>Engine:</b> 3.5 Liters, 317Hp;</br><b>Acceleration 0-100km/h:</b> 6.3sec;</br><b>Top speed:</b> 223 km/h;");
+
                 CreateGalleryCar(context,
                     title: "BMW 6-Series",
                     url: @" http://media.snimka.bg/s1/5543/037330665.jpg",
-                    description: null);
+                    description: "<b>Year:</b> 2015;</br><b>Engine:</b> 3.0 Liters, 320Hp;</br><b>Acceleration 0-100km/h:</b> 5.3sec;</br><b>Top speed:</b> 250 km/h;");
+
                 CreateGalleryCar(context,
                     title: "Mazda 6",
                     url: @" http://media.snimka.bg/s1/5543/037330666.jpg",
-                    description: null);
-                CreateGalleryCar(context,
-                    title: "Lexus GS-350",
-                    url: @" http://media.snimka.bg/s1/5543/037330667.jpg",
-                    description: null);*/
+                    description: "<b>Year:</b> 2015;</br><b>Engine:</b> 2.5 Liters, 192Hp;</br><b>Acceleration 0-100km/h:</b> 7.8sec;</br><b>Top speed:</b> 223 km/h;");*/
+
 
                 CreateVideo(context,
-                    title: "Chevrolet Camaro",
-                    url: @" http://www.youtube.com/watch?v=UrzcfGMlzbM",
-                    description: null);
-
-               /* CreateVideo(context,
-                    title: "Mercedes E-class",
-                    url: @" http://youtu.be/wO7ljRl6-WI",
-                    description: null);
+                    videoTitle: "Chevrolet Camaro",
+                    videoUrl: @" https://www.youtube.com/embed/z9Lvtv0MP_4",
+                    videoDescription: null);
 
                 CreateVideo(context,
-                    title: "Mercedes SLS AMG",
-                    url: @" http://youtu.be/7fWUiW7ALAM",
-                    description: null);
+                    videoTitle: "Mercedes E-class",
+                    videoUrl: @" https://www.youtube.com/embed/wO7ljRl6-WI",
+                    videoDescription: null);
 
-    */
+                CreateVideo(context,
+                    videoTitle: "Mercedes SLS AMG",
+                    videoUrl: @" https://www.youtube.com/embed/7fWUiW7ALAM",
+                    videoDescription: null);
+
+                
                 context.SaveChanges();
 
                 CreateComment(context,
@@ -291,6 +326,15 @@ namespace MVCBlog.Migrations
             context.Posts.Add(post);
         }
 
+        private void CreateVideo(ApplicationDbContext context, string videoTitle, string videoUrl, string videoDescription)
+        {
+            var carVideo = new Video();
+            carVideo.Title = videoTitle;
+            carVideo.Url = videoUrl;
+            carVideo.Description = videoDescription;
+            context.Videos.Add(carVideo);
+        }
+
         private void CreateGalleryCar(ApplicationDbContext context,
             string title, string url, string description)
         {
@@ -310,14 +354,5 @@ namespace MVCBlog.Migrations
             comment.Post = context.GalleryCars.Where(p => p.Id == postId).FirstOrDefault();
             context.Comments.Add(comment);
         }
-        private void CreateVideo(ApplicationDbContext context, string title, string url, string description)
-        {
-            var video = new Video();
-            video.Title = title;
-            video.Url = url;
-            video.Description = description;
-            context.Videos.Add(video);
-        }
-        
     }
 }

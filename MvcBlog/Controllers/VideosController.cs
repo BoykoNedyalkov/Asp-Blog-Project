@@ -7,6 +7,9 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using MvcBlog.Models;
+using PagedList;
+using PagedList.Mvc;
+using MvcBlog.ViewModel;
 
 namespace MvcBlog.Controllers
 {
@@ -15,13 +18,18 @@ namespace MvcBlog.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Videos
-        public ActionResult Index()
+        public ActionResult Index(int page = 1, int pageSize = 6)
         {
-            return View(db.Videos.ToList());
+            var carVideo = db.Videos.Include(g => g.Id);
+            var carVideoLinks = db.Videos.Include(g => g.Id);
+            List<Video> allVideos = db.Videos.ToList();
+            PagedList<Video> singlePage = new PagedList<Video>(allVideos, page, pageSize);
+            this.ViewBag.CarVideoLinks = carVideoLinks;
+            return View(singlePage);
         }
 
         // GET: Videos/Details/5
-        public ActionResult Details(string id)
+        public ActionResult Details(int? id)
         {
             if (id == null)
             {
@@ -32,7 +40,17 @@ namespace MvcBlog.Controllers
             {
                 return HttpNotFound();
             }
-            return View(video);
+            this.Session["postId"] = video.Id;
+            var myViewModel = new VideoViewModel();
+            var firstItem = db.Videos.OrderBy(x => x.Id).First();
+            var lastItem = db.Videos.OrderByDescending(x => x.Id).First();
+            var videoComments = db.Comments.Where(c => c.VideoPost.Id == video.Id).Include(c => c.Author).ToList();
+            myViewModel.firstItemID = firstItem.Id;
+            myViewModel.lastItemID = lastItem.Id;
+            myViewModel.CarVideo = video;
+            myViewModel.videoComments = videoComments;
+            ViewBag.PostId = video.Id;
+            return View(myViewModel);
         }
 
         // GET: Videos/Create
