@@ -4,7 +4,7 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Video comments</h2>
 
 <div class="galleryCarDiv">
     <h4>GalleryCar</h4>
@@ -93,8 +93,11 @@
         <div class="col-md-2">
 
         </div>
+        <a href="/Comments/Create">
+            <div class="col-md-8 btn btn-primary" style="color:white">Create a comment</div>
+        </a>
 
-        @Html.ActionLink("Create Comment", "Create", "Comments", new { @class = "btn btn-primary col-md-7", @style = "color:white" })
+        @*@Html.ActionLink("Create Comment", "Create", "Comments", new { @class = "btn btn-primary col-md-7", @style = "color:white" })*@
 
 
         <div class="col-md-2">
@@ -124,7 +127,10 @@ else
     </div>
     <div class="row">
         <div class="col-md-2"></div>
-        @Html.ActionLink("Write the first comment", "Create", "Comments", new { @class = "btn btn-primary col-md-6", @style = "color:white" })
+        <a href="/Comments/Create">
+            <div class="col-md-8 btn btn-primary" style="color:white">Write the first comment</div>
+        </a>
+        @*@Html.ActionLink("Write the first comment", "Create", "Comments", new { @class = "btn btn-primary col-md-6", @style = "color:white" })*@
         <div class="col-md-2"></div>
     </div>
 }
