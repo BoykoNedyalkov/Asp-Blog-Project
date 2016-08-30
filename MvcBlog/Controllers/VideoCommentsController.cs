@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using MvcBlog.Models;
+using Microsoft.AspNet.Identity;
 
 namespace MvcBlog.Controllers
 {
@@ -46,13 +47,21 @@ namespace MvcBlog.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Text,Date")] VideoComment videoComment)
+        public ActionResult Create([Bind(Include = "Id,Text,Date,postId,authorId")] VideoComment videoComment)
         {
+            var postId = (int)this.Session["videoPostId"];
+            var postObj = db.Videos.Where(p => p.Id == postId).Single();
+            videoComment.Post = postObj;
+            var authorId = User.Identity.GetUserId();
+            var authorObj = db.Users.Where(u => u.Id == authorId).Single();
+            videoComment.Author = authorObj;
+            var date = DateTime.Now;
+            videoComment.Date = date;
             if (ModelState.IsValid)
             {
                 db.VideoComments.Add(videoComment);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", "Videos", new { postObj.Id });
             }
 
             return View(videoComment);
