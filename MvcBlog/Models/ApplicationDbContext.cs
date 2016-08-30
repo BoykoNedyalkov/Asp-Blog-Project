@@ -26,5 +26,7 @@ namespace MvcBlog.Models
         public System.Data.Entity.DbSet<MvcBlog.Models.Video> Videos { get; set; }
 
         public System.Data.Entity.DbSet<MvcBlog.Models.Comment> Comments { get; set; }
+
+        public System.Data.Entity.DbSet<MvcBlog.Models.VideoComment> VideoComments { get; set; }
     }
 }

@@ -6,21 +6,20 @@ using System.Web;
 
 namespace MvcBlog.Models
 {
-    public class Comment
+    public class VideoComment
     {
-        public Comment()
+        public VideoComment()
         {
             Date = DateTime.Now;
         }
-        
+
         [Key]
         public int Id { get; set; }
         [Required]
         [MaxLength(140)]
         public string Text { get; set; }
-        public GalleryCar Post { get; set; }
+        public Video Post { get; set; }
         public ApplicationUser Author { get; set; }
         public DateTime Date { get; set; }
-        
     }
 }

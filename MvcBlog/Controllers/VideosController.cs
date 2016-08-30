@@ -40,17 +40,19 @@ namespace MvcBlog.Controllers
             {
                 return HttpNotFound();
             }
-            this.Session["postId"] = video.Id;
+            this.Session["videoPostId"] = video.Id;
             var myViewModel = new VideoViewModel();
-            var firstItem = db.Videos.OrderBy(x => x.Id).First();
             var lastItem = db.Videos.OrderByDescending(x => x.Id).First();
-            var videoComments = db.Comments.Where(c => c.VideoPost.Id == video.Id).Include(c => c.Author).ToList();
-            myViewModel.firstItemID = firstItem.Id;
-            myViewModel.lastItemID = lastItem.Id;
-            myViewModel.CarVideo = video;
+            var firstItem = db.Videos.OrderBy(x => x.Id).First();
+            var videoComments = db.VideoComments.Where(c => c.Post.Id == video.Id).Include(c => c.Author).ToList();
+            myViewModel.lastVIdeoItemID = lastItem.Id;
+            myViewModel.firstVideoID = firstItem.Id;
+            myViewModel.video = video;
             myViewModel.videoComments = videoComments;
             ViewBag.PostId = video.Id;
             return View(myViewModel);
+
+            
         }
 
         // GET: Videos/Create

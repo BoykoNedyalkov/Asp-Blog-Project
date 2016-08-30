@@ -134,6 +134,12 @@ namespace MvcBlog.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             GalleryCar galleryCar = db.GalleryCars.Find(id);
+
+            var carComments = db.Comments.Where(c => c.Post.Id == id).ToList();
+            foreach (var item in carComments)
+            {
+                db.Comments.Remove(item);
+            }
             db.GalleryCars.Remove(galleryCar);
             db.SaveChanges();
             return RedirectToAction("Index");

@@ -237,6 +237,13 @@ namespace MVCBlog.Migrations
                     postId: 2
                     );
                 context.SaveChanges();
+                CreateVideoComment(context,
+                    text: "I like videos",
+                    date: new DateTime(2016, 08, 01, 17, 36, 52),
+                    authorUserName: "geshu@gmail.com",
+                    postId: 2
+                    );
+                context.SaveChanges();
             }
         }
 
@@ -329,6 +336,15 @@ namespace MVCBlog.Migrations
             comment.Author = context.Users.Where(u => u.UserName == authorUserName).FirstOrDefault();
             comment.Post = context.GalleryCars.Where(p => p.Id == postId).FirstOrDefault();
             context.Comments.Add(comment);
+        }
+        private void CreateVideoComment(ApplicationDbContext context, string text, int postId, string authorUserName, DateTime date)
+        {
+            var comment = new VideoComment();
+            comment.Text = text;
+            comment.Date = date;
+            comment.Author = context.Users.Where(u => u.UserName == authorUserName).FirstOrDefault();
+            comment.Post = context.Videos.Where(p => p.Id == postId).FirstOrDefault();
+            context.VideoComments.Add(comment);
         }
     }
 }

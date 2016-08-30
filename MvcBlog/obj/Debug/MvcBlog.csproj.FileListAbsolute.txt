@@ -339,7 +339,6 @@ C:\Users\Boyko\Documents\GitHub\Asp-Blog-Project\MvcBlog\bin\Microsoft.Owin.Secu
 C:\Users\Boyko\Documents\GitHub\Asp-Blog-Project\MvcBlog\bin\Microsoft.Owin.Security.Google.xml
 C:\Users\Boyko\Documents\GitHub\Asp-Blog-Project\MvcBlog\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\Boyko\Documents\GitHub\Asp-Blog-Project\MvcBlog\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-C:\Users\Boyko\Documents\GitHub\Asp-Blog-Project\MvcBlog\obj\Debug\MvcBlog.csprojResolveAssemblyReference.cache
 C:\Users\Boyko\Documents\GitHub\Asp-Blog-Project\MvcBlog\obj\Debug\MvcBlog.dll
 C:\Users\Boyko\Documents\GitHub\Asp-Blog-Project\MvcBlog\obj\Debug\MvcBlog.pdb
 C:\Users\User\Documents\GitHub\Asp-Blog-Project\MvcBlog\obj\Debug\MvcBlog.dll

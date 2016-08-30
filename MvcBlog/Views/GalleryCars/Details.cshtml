@@ -23,7 +23,7 @@
                 <p>
 
                     @Html.ActionLink("Edit", "Edit", new { id = Model.Car.Id }) |
-                    @Html.ActionLink("Back to List", "Index")
+                    @Html.ActionLink("Delete", "Delete", new { id = Model.Car.Id })
                 </p>
             </div>
             <div class="col-md-2">
@@ -144,3 +144,11 @@
             </div>
         }
 
+@Html.ActionLink("Back to List", "Index")
+<div class="row">
+    <div class="col-md-2"></div>
+    <a href="/Comments/Create">
+        @Html.ActionLink("Back to List", "Index", new { @class = "btn btn-primary", @style = "color:white" })
+    </a>
+    <div class="col-md-2"></div>
+</div>

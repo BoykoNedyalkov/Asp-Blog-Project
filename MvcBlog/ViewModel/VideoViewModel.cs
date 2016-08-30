@@ -8,9 +8,9 @@ namespace MvcBlog.ViewModel
 {
     public class VideoViewModel
     {
-        public List<Comment> videoComments { get; set; }
-        public int firstItemID { get; set; }
-        public int lastItemID { get; set; }
-        public Video CarVideo { get; set; }
+        public List<VideoComment> videoComments { get; set; }
+        public int firstVideoID { get; set; }
+        public int lastVIdeoItemID { get; set; }
+        public Video video { get; set; }
     }
 }

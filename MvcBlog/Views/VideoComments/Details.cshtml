@@ -1,0 +1,102 @@
+﻿@model MvcBlog.Models.VideoCommentViewModel 
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>VideoComment</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Text)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Text)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+@if (Model.videoComments.Where(c => c.Post.Id == Model.Car.Id).FirstOrDefault() != null)
+{
+    foreach (var item in Model.carComments)
+    {
+        <div class="row">
+            <div class="col-md-2 ">
+
+            </div>
+            <div class="post col-md-7">
+                <div class="about">
+                    Posted on <i>@item.Date</i>
+                    @if (item.Author != null)
+                    {
+                        @:by <i>@item.Author.FullName (@item.Author.UserName)</i>
+                }
+                    <div class="body">@item.Text</div>
+                </div>
+            </div>
+            <div class="col-md-2 ">
+
+            </div>
+
+        </div>
+                <br>
+
+    }
+    <div class="row">
+        <div class="col-md-2">
+
+        </div>
+        <a href="/Comments/Create">
+            <div class="col-md-8 btn btn-primary" style="color:white">Create a comment</div>
+        </a>
+
+
+        <div class="col-md-2">
+
+        </div>
+    </div>
+}
+else
+{
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="post">
+                <p style="text-align:center">No comments</p>
+            </div>
+        </div>
+        <div class="col-md-8"></div>
+        <div class="row">
+            <div class="col-md-2">
+
+            </div>
+        </div>
+
+        <div class="col-md-2">
+
+        </div>
+    </div>
+            <div class="row">
+                <div class="col-md-2"></div>
+                <a href="/Comments/Create">
+                    <div class="col-md-8 btn btn-primary" style="color:white">Write the first comment</div>
+                </a>
+                <div class="col-md-2"></div>
+            </div>
+}
