@@ -64,7 +64,7 @@ namespace MvcBlog.Controllers
             {
                 db.Comments.Add(comment);
                 db.SaveChanges();
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Details", "GalleryCars", new { postObj.Id });
             }
 
             return View(comment);

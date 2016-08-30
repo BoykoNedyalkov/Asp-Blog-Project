@@ -201,6 +201,30 @@ namespace MVCBlog.Migrations
                     authorUserName: "merry@gmail.com",
                     postId: 2
                     );
+                CreateComment(context,
+                   text: "Pretty nice!",
+                   date: new DateTime(2016, 08, 01, 17, 36, 52),
+                   authorUserName: "merry@gmail.com",
+                   postId: 2
+                   );
+                CreateComment(context,
+                   text: "Nakov approves!",
+                   date: new DateTime(2016, 08, 01, 17, 36, 52),
+                   authorUserName: "merry@gmail.com",
+                   postId: 2
+                   );
+                CreateComment(context,
+                   text: "This sucks",
+                   date: new DateTime(2016, 08, 01, 17, 36, 52),
+                   authorUserName: "merry@gmail.com",
+                   postId: 2
+                   );
+                CreateComment(context,
+                   text: "This sucks",
+                   date: new DateTime(2016, 08, 01, 17, 36, 52),
+                   authorUserName: "merry@gmail.com",
+                   postId: 2
+                   );
                 context.SaveChanges();
             }
         }
