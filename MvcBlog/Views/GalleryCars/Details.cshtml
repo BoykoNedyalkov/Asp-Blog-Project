@@ -80,9 +80,12 @@
             foreach (var item in Model.carComments)
             {
                 <div class="row">
-                    <div class="col-md-2 ">
-
+                    <div class="col-md-2">
+                        <a href="/Comments/Delete/@item.Id">
+                            <div class=" btn btn-danger" style="color:white">Delete</div>
+                        </a>
                     </div>
+                    
                     <div class="post col-md-7">
                         <div class="about">
                             Posted on <i>@item.Date</i>
