@@ -125,7 +125,7 @@ namespace MVCBlog.Migrations
                     title: "Mercedes AMG",
                     url: @" http://media.snimka.bg/s1/5543/037330567.jpg",
                     description: "<b>Year:</b> 2014;</br><b>Engine:</b> 6.2 Liters, 571Hp;</br><b>Acceleration 0-100km/h:</b> 3.7sec;</br><b>Top speed:</b> 320 km/h;");
-                
+
                 CreateGalleryCar(context,
                     title: "Chevrolet Camaro",
                     url: @" http://media.snimka.bg/s1/5543/037330568.jpg",
@@ -145,7 +145,7 @@ namespace MVCBlog.Migrations
                     title: "Cadillac CTS 2017",
                     url: @" http://media.snimka.bg/s1/5543/037330571.jpg",
                     description: "<b>Year:</b> 2017;</br><b>Engine:</b> 2.0 Liters, 272Hp;</br><b>Acceleration 0-100km/h:</b> 5.8sec;</br><b>Top speed:</b> Still no information available!!!");
-                
+
                 CreateGalleryCar(context,
                    title: "Maserati Quattroporte",
                    url: @" http://media.snimka.bg/s1/5543/037330660.jpg",
@@ -185,7 +185,7 @@ namespace MVCBlog.Migrations
                     title: "BMW 5-Series LCI",
                     url: @" http://media.snimka.bg/s1/5543/037330663.jpg",
                     description: "<b>Year:</b> 2015;</br><b>Engine:</b> 3.0 Liters, 340Hp;</br><b>Acceleration 0-100km/h:</b> 5.9sec;</br><b>Top speed:</b> 250 km/h;");
-               
+
                 /*CreateGalleryCar(context,
                     title: "Volvo S90 Hybrid",
                     url: @" http://media.snimka.bg/s1/5543/037330664.jpg",
@@ -227,7 +227,7 @@ namespace MVCBlog.Migrations
                     videoUrl: @" https://www.youtube.com/embed/7fWUiW7ALAM",
                     videoDescription: null);
 
-                
+
                 context.SaveChanges();
 
                 CreateComment(context,
@@ -236,30 +236,6 @@ namespace MVCBlog.Migrations
                     authorUserName: "merry@gmail.com",
                     postId: 2
                     );
-                CreateComment(context,
-                   text: "Pretty nice!",
-                   date: new DateTime(2016, 08, 01, 17, 36, 52),
-                   authorUserName: "merry@gmail.com",
-                   postId: 2
-                   );
-                CreateComment(context,
-                   text: "Nakov approves!",
-                   date: new DateTime(2016, 08, 01, 17, 36, 52),
-                   authorUserName: "merry@gmail.com",
-                   postId: 2
-                   );
-                CreateComment(context,
-                   text: "This sucks",
-                   date: new DateTime(2016, 08, 01, 17, 36, 52),
-                   authorUserName: "merry@gmail.com",
-                   postId: 2
-                   );
-                CreateComment(context,
-                   text: "This sucks",
-                   date: new DateTime(2016, 08, 01, 17, 36, 52),
-                   authorUserName: "merry@gmail.com",
-                   postId: 2
-                   );
                 context.SaveChanges();
             }
         }
@@ -344,8 +320,8 @@ namespace MVCBlog.Migrations
             car.Description = description;
             context.GalleryCars.Add(car);
         }
-        
-        private void CreateComment(ApplicationDbContext context,string text,int postId,string authorUserName,DateTime date)
+
+        private void CreateComment(ApplicationDbContext context, string text, int postId, string authorUserName, DateTime date)
         {
             var comment = new Comment();
             comment.Text = text;
