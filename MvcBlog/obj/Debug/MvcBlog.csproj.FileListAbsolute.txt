@@ -512,5 +512,4 @@ C:\Users\Ivan\Documents\GitHub\Asp-Blog-Project\MvcBlog\bin\Microsoft.Owin.Secur
 C:\Users\Ivan\Documents\GitHub\Asp-Blog-Project\MvcBlog\obj\Debug\MvcBlog.csprojResolveAssemblyReference.cache
 C:\Users\Ivan\Documents\GitHub\Asp-Blog-Project\MvcBlog\obj\Debug\MvcBlog.dll
 C:\Users\Ivan\Documents\GitHub\Asp-Blog-Project\MvcBlog\obj\Debug\MvcBlog.pdb
-C:\Users\User\Documents\GitHub\Asp-Blog-Project\MvcBlog\obj\Debug\MvcBlog.csprojResolveAssemblyReference.cache
 C:\Users\Boyko\Documents\GitHub\Asp-Blog-Project\MvcBlog\obj\Debug\MvcBlog.csprojResolveAssemblyReference.cache

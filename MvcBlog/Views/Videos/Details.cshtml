@@ -21,32 +21,32 @@
                 <button class="btn btn-default" style="color:black">Previous</button>
             }
         </div>
-        <div class="col-md-8">
+        <div class="col-md-9">
             <h2 class="title">@Model.video.Title</h2>
-            <div class="body">
+            @*<div class="body">*@
 
                 <!--<img class="img-rounded" src=@*@Html.Raw(Model.CarVideo.Url)*@ align="middle">-->
-                <iframe class="img-responsive img-rounded" width="560" height="315" src="@Html.Raw(Model.video.Url)" frameborder="0" allowfullscreen align="middle"></iframe>
+                <iframe @*class="img-responsive img-rounded"*@ width="700" height="520" src="@Html.Raw(Model.video.Url)" frameborder="0" allowfullscreen align="middle"></iframe>
                 <p>
 
                     @Html.ActionLink("Edit", "Edit", new { id = Model.video.Id }) |
                     @Html.ActionLink("Back to List", "Index")
                 </p>
 
-            </div>
+            @*</div>*@
 
         </div>
-        <div class="col-md-2">
-            @if (Model.video.Id != Model.lastVIdeoItemID)
+        <div class="col-md-1">
+                @if (Model.video.Id != Model.lastVIdeoItemID)
             {
-                @Html.ActionLink("Next", "Details", new { id = Model.video.Id + 1 }, new { @class = "btn btn-primary", @style = "color:white" })
-            }
-            else
-            {
-                <button class="btn btn-default" style="color:black">Next</button>
-            }
+                    @Html.ActionLink("Next", "Details", new { id = Model.video.Id + 1 }, new { @class = "btn btn-primary", @style = "color:white" })
+                }
+                else
+                {
+                    <button class="btn btn-default" style="color:black">Next</button>
+                }
         </div>
-    </div>
+        
     <br />
     <div class="row">
 
