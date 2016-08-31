@@ -272,8 +272,52 @@ namespace MVCBlog.Migrations
                     videoDescription: null);
 
                 CreateVideo(context,
-                    videoTitle: "Mercedes SLS AMG",
-                    videoUrl: @" https://www.youtube.com/embed/7fWUiW7ALAM",
+                    videoTitle: "VW Touareg 3",
+                    videoUrl: @" https://www.youtube.com/embed/dMEkO1SdV3c",
+                    videoDescription: null);
+
+                CreateVideo(context,
+                    videoTitle: "Toyota 86",
+                    videoUrl: @" https://www.youtube.com/embed/nFqj35y9XG8",
+                    videoDescription: null);
+
+                CreateVideo(context,
+                    videoTitle: "Maybach 6",
+                    videoUrl: @" https://www.youtube.com/embed/z6d_aT_OHnE",
+                    videoDescription: null);
+                CreateVideo(context,
+                    videoTitle: "BMW M2 Coupe 2017",
+                    videoUrl: @" https://www.youtube.com/embed/L4vf9mKL5EI",
+                    videoDescription: null);
+
+                CreateVideo(context,
+                    videoTitle: "Audi R8 V10 ",
+                    videoUrl: @" https://www.youtube.com/embed/HTTbVygKrP4",
+                    videoDescription: null);
+
+                CreateVideo(context,
+                    videoTitle: "Volvo s90",
+                    videoUrl: @" https://www.youtube.com/embed/O5c0oMbF7fw",
+                    videoDescription: null);
+
+                CreateVideo(context,
+                    videoTitle: "Supercars of Europe!",
+                    videoUrl: @" https://www.youtube.com/embed/7dHuXpQuGI0",
+                    videoDescription: null);
+
+                CreateVideo(context,
+                    videoTitle: "Ferrari FXX",
+                    videoUrl: @" https://www.youtube.com/embed/GfqiHK-4RW0",
+                    videoDescription: null);
+
+                CreateVideo(context,
+                    videoTitle: "Bugatti Chiron",
+                    videoUrl: @" https://www.youtube.com/embed/R0NeAlTQCWs",
+                    videoDescription: null);
+
+                CreateVideo(context,
+                    videoTitle: "Maserati Levante",
+                    videoUrl: @" https://www.youtube.com/embed/8UeEgWCk7gI",
                     videoDescription: null);
 
 

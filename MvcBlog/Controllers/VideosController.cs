@@ -77,6 +77,7 @@ namespace MvcBlog.Controllers
         }
 
         // GET: Videos/Create
+        [Authorize]
         public ActionResult Create()
         {
             

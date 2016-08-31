@@ -513,4 +513,3 @@ C:\Users\Ivan\Documents\GitHub\Asp-Blog-Project\MvcBlog\obj\Debug\MvcBlog.csproj
 C:\Users\Ivan\Documents\GitHub\Asp-Blog-Project\MvcBlog\obj\Debug\MvcBlog.dll
 C:\Users\Ivan\Documents\GitHub\Asp-Blog-Project\MvcBlog\obj\Debug\MvcBlog.pdb
 C:\Users\Boyko\Documents\GitHub\Asp-Blog-Project\MvcBlog\obj\Debug\MvcBlog.csprojResolveAssemblyReference.cache
-C:\Users\User\Documents\GitHub\Asp-Blog-Project\MvcBlog\obj\Debug\MvcBlog.csprojResolveAssemblyReference.cache
