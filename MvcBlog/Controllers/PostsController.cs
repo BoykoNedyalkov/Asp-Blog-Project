@@ -55,7 +55,7 @@ namespace MvcBlog.Controllers
         }
 
         // GET: Posts/Create
-        
+        [Authorize]
         public ActionResult Create()
         {
             return View();
