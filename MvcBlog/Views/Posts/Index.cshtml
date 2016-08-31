@@ -1,7 +1,10 @@
 ﻿@using Microsoft.AspNet.Identity
 @using PagedList;
 @using PagedList.Mvc;
+@using MvcBlog.Classes;
 @model IPagedList<MvcBlog.Models.Post>
+
+
 
 @{
     ViewBag.Title = "Index";
@@ -38,7 +41,8 @@
                 <br />
 
                 <b>Content: </b>
-                @Html.DisplayFor(modelItem => item.Body)
+                @*@Html.DisplayFor(modelItem => item.Body)*@
+                @Utils.CutText(item.Body);
                 <br />
                 <br />
 
