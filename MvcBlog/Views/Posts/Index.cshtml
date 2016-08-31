@@ -72,8 +72,13 @@
                     @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-success", @style = "color:white" })
                     <br />
                 }
-                @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-primary", @style = "color:white" })
-                <br />
+
+                @if (item.Body.ToCharArray().Length >= 300)
+                {
+                    @Html.ActionLink("Go to full post.", "Details", new { id = item.Id }, new { @class = "btn btn-primary", @style = "color:white" })
+                    <br />
+                }
+
                 @if (item.Author.Id == User.Identity.GetUserId() || User.IsInRole("Administrators"))
                 {
                     @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-danger", @style = "color:white" })
