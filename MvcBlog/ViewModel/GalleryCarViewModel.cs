@@ -12,7 +12,8 @@ namespace MvcBlog.ViewModel
        public int firstItemID { get; set; }
        public int lastItemID { get; set; }
        public GalleryCar Car { get; set; }
-      
+       public int previousId { get; set; }
+       public int nextId { get; set; }
        
     }
 }

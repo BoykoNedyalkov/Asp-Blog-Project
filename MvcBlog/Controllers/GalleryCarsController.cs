@@ -48,6 +48,21 @@ namespace MvcBlog.Controllers
             var lastItem = db.GalleryCars.OrderByDescending(x => x.Id).First();
             var firstItem = db.GalleryCars.OrderBy(x => x.Id).First();
             var carComments = db.Comments.Where(c => c.Post.Id == galleryCar.Id).Include(c => c.Author).ToList();
+            var prevCar = db.GalleryCars.OrderByDescending(x => x.Id < galleryCar.Id).FirstOrDefault();
+            var nextCar = db.GalleryCars.Where(x => x.Id > galleryCar.Id).FirstOrDefault();
+            var prevId = firstItem.Id;
+            var nextId = lastItem.Id;
+            if(galleryCar.Id != firstItem.Id)
+            {
+                prevId = prevCar.Id;
+            }
+            prevId = prevCar.Id;
+            if(galleryCar.Id != lastItem.Id)
+            {
+                nextId = nextCar.Id;
+            }            
+            myViewModel.previousId = prevId;
+            myViewModel.nextId = nextId;
             myViewModel.lastItemID = lastItem.Id;
             myViewModel.firstItemID = firstItem.Id;
             myViewModel.Car = galleryCar;
@@ -100,6 +115,7 @@ namespace MvcBlog.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateInput(false)]
+        [Authorize(Roles = "Administrators")]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,Title,URL,Description")] GalleryCar galleryCar)
         {
@@ -131,6 +147,7 @@ namespace MvcBlog.Controllers
         // POST: GalleryCars/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrators")]
         public ActionResult DeleteConfirmed(int id)
         {
             GalleryCar galleryCar = db.GalleryCars.Find(id);

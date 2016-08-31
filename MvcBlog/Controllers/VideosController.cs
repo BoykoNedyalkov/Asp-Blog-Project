@@ -10,6 +10,7 @@ using MvcBlog.Models;
 using PagedList;
 using PagedList.Mvc;
 using MvcBlog.ViewModel;
+using Microsoft.AspNet.Identity;
 
 namespace MvcBlog.Controllers
 {
@@ -45,6 +46,21 @@ namespace MvcBlog.Controllers
             var lastItem = db.Videos.OrderByDescending(x => x.Id).First();
             var firstItem = db.Videos.OrderBy(x => x.Id).First();
             var videoComments = db.VideoComments.Where(c => c.Post.Id == video.Id).Include(c => c.Author).ToList();
+            var prevVid = db.Videos.OrderByDescending(x => x.Id < video.Id).FirstOrDefault();
+            var nextVid = db.Videos.Where(x => x.Id > video.Id).FirstOrDefault();
+            var prevId = firstItem.Id;
+            var nextId = lastItem.Id;
+            if (video.Id != firstItem.Id)
+            {
+                prevId = prevVid.Id;
+            }
+            prevId = prevVid.Id;
+            if (video.Id != lastItem.Id)
+            {
+                nextId = nextVid.Id;
+            }
+            myViewModel.previousVideoId = prevId;
+            myViewModel.nextVideoId = nextId;
             myViewModel.lastVIdeoItemID = lastItem.Id;
             myViewModel.firstVideoID = firstItem.Id;
             myViewModel.video = video;
@@ -58,6 +74,7 @@ namespace MvcBlog.Controllers
         // GET: Videos/Create
         public ActionResult Create()
         {
+            
             return View();
         }
 
@@ -66,6 +83,7 @@ namespace MvcBlog.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles ="Administrators")]
         public ActionResult Create([Bind(Include = "Id,Title,Url,Description")] Video video)
         {
             if (ModelState.IsValid)
@@ -98,6 +116,7 @@ namespace MvcBlog.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateInput(false)]
+        [Authorize(Roles = "Administrators")]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,Title,Url,Description")] Video video)
         {
@@ -128,11 +147,19 @@ namespace MvcBlog.Controllers
         // POST: Videos/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrators")]
         public ActionResult DeleteConfirmed(int? id)
         {
+
             Video video = db.Videos.Find(id);
+            var comments = db.VideoComments.Where(c => c.Post.Id == id).ToList();
+            foreach (var item in comments)
+            {
+                db.VideoComments.Remove(item);
+            }
             db.Videos.Remove(video);
             db.SaveChanges();
+           
             return RedirectToAction("Index");
         }
 

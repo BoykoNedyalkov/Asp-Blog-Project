@@ -55,7 +55,7 @@
 
         @if (Model.Car.Id != Model.firstItemID)
             {
-            @Html.ActionLink("Previous", "Details", new { id = Model.Car.Id - 1 }, new { @class = "btn btn-primary", @style = "color:white" })
+            @Html.ActionLink("Previous", "Details", new { id = Model.previousId }, new { @class = "btn btn-primary", @style = "color:white" })
         }
         else
         {
@@ -67,7 +67,7 @@
             @if (Model.Car.Id != Model.lastItemID)
             {
                 
-                @Html.ActionLink("Next", "Details", new { id = Model.Car.Id + 1 }, new { @class = "btn btn-primary", @style = "color:white" })
+                @Html.ActionLink("Next", "Details", new { id = Model.nextId }, new { @class = "btn btn-primary", @style = "color:white" })
             }
             else
             {

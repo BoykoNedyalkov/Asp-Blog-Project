@@ -15,7 +15,7 @@
         <div class="col-md-2">
             @if (Model.video.Id != Model.firstVideoID)
             {
-                @Html.ActionLink("Previous", "Details", new { id = Model.video.Id - 1 }, new { @class = "btn btn-primary", @style = "color:white" })
+                @Html.ActionLink("Previous", "Details", new { id = Model.previousVideoId }, new { @class = "btn btn-primary", @style = "color:white" })
             }
             else
             {
@@ -44,7 +44,7 @@
         <div class="col-md-1">
                 @if (Model.video.Id != Model.lastVIdeoItemID)
             {
-                    @Html.ActionLink("Next", "Details", new { id = Model.video.Id + 1 }, new { @class = "btn btn-primary", @style = "color:white" })
+                    @Html.ActionLink("Next", "Details", new { id = Model.nextVideoId }, new { @class = "btn btn-primary", @style = "color:white" })
                 }
                 else
                 {

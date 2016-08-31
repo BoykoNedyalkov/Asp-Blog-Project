@@ -12,5 +12,7 @@ namespace MvcBlog.ViewModel
         public int firstVideoID { get; set; }
         public int lastVIdeoItemID { get; set; }
         public Video video { get; set; }
+        public int nextVideoId { get; set; }
+        public int previousVideoId { get; set; }
     }
 }
