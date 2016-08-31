@@ -1,5 +1,10 @@
 ﻿@using Microsoft.AspNet.Identity
-@model IEnumerable<MvcBlog.Models.Post>
+@using PagedList;
+@using PagedList.Mvc;
+@using MvcBlog.Classes;
+@model IPagedList<MvcBlog.Models.Post>
+
+
 
 @{
     ViewBag.Title = "Index";
@@ -36,7 +41,8 @@
                 <br />
 
                 <b>Content: </b>
-                @Html.DisplayFor(modelItem => item.Body)
+                @*@Html.DisplayFor(modelItem => item.Body)*@
+                @Utils.CutText(item.Body);
                 <br />
                 <br />
 
@@ -66,8 +72,13 @@
                     @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-success", @style = "color:white" })
                     <br />
                 }
-                @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-primary", @style = "color:white" })
-                <br />
+
+                @if (item.Body.ToCharArray().Length >= 300)
+                {
+                    @Html.ActionLink("Go to full post.", "Details", new { id = item.Id }, new { @class = "btn btn-primary", @style = "color:white" })
+                    <br />
+                }
+
                 @if (item.Author.Id == User.Identity.GetUserId() || User.IsInRole("Administrators"))
                 {
                     @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-danger", @style = "color:white" })
@@ -77,3 +88,14 @@
     }
 
 </table>
+
+<div class="col-sm-10">
+    <div class="center">
+
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page, pageSize = Model.PageSize }))
+        Showing @Model.FirstItemOnPage to @Model.LastItemOnPage
+        of @Model.TotalItemCount galleryCars
+
+        <br />
+    </div>
+</div>  

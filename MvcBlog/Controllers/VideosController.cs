@@ -66,7 +66,7 @@ namespace MvcBlog.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "VideoId,VideoTitle,VideoUrl,VideoDescription")] Video video)
+        public ActionResult Create([Bind(Include = "Id,Title,Url,Description")] Video video)
         {
             if (ModelState.IsValid)
             {
@@ -79,7 +79,7 @@ namespace MvcBlog.Controllers
         }
 
         // GET: Videos/Edit/5
-        public ActionResult Edit(string id)
+        public ActionResult Edit(int? id)
         {
             if (id == null)
             {
@@ -99,7 +99,7 @@ namespace MvcBlog.Controllers
         [HttpPost]
         [ValidateInput(false)]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "VideoId,VideoTitle,VideoUrl,VideoDescription")] Video video)
+        public ActionResult Edit([Bind(Include = "Id,Title,Url,Description")] Video video)
         {
             if (ModelState.IsValid)
             {
@@ -111,7 +111,7 @@ namespace MvcBlog.Controllers
         }
 
         // GET: Videos/Delete/5
-        public ActionResult Delete(string id)
+        public ActionResult Delete(int? id)
         {
             if (id == null)
             {
@@ -128,7 +128,7 @@ namespace MvcBlog.Controllers
         // POST: Videos/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(string id)
+        public ActionResult DeleteConfirmed(int? id)
         {
             Video video = db.Videos.Find(id);
             db.Videos.Remove(video);

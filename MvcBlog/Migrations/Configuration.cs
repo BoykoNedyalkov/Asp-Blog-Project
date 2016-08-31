@@ -28,40 +28,7 @@ namespace MVCBlog.Migrations
 
                 CreateRole(context, "Administrators");
                 AddUserToRole(context, "admin@gmail.com", "Administrators");
-
-                CreatePost(context,
-                    title: "Hyundai says it's discussing partnerships with Google",
-                    body: @"SEOUL -- Hyundai Motor is in discussions with Google about further partnerships
-                        as the automaker seeks external expertise to remain competitive. The two companies have some
-                        common areas that may require cooperation, Hyundai Motor President Jeong Jin Haeng said after
-                        a meeting between the trade ministry and local automakers. Hyundai has been among the most 
-                        active automakers adopting Apple's CarPlay and Google parent Alphabet's Android Auto, 
-                        which integrate iPhone and Android handsets with car dashboards. Jeong didn't give further
-                        details or confirm if the automaker is considering developing autonomous cars with Google.",
-                    date: new DateTime(2016, 03, 27, 17, 53, 48),
-                    authorUsername: "merry@gmail.com"
-                );
-
-                CreatePost(context,
-                    title: "Ford to make autonomous cars for ride-hailing, ride-sharing by 2021",
-                    body: @"Ford Motor Co. today said it plans to introduce an autonomous vehicle by 2021 for
-                            use in a ride-hailing or ride-sharing service. Ford said the vehicle would be “specifically
-                            designed for commercial mobility services” and built in high volumes. “Ford is going to be 
-                            mass-producing vehicles with full autonomy in five years,” CEO Mark Fields said at an event
-                            in Silicon Valley that was broadcast online. “There’s going to be no steering wheel, there’s
-                            not going to be a gas pedal, there’s not going to be a brake pedal and of course a driver is
-                            not going to be required.",
-                    date: new DateTime(2016, 05, 11, 08, 22, 03),
-                    authorUsername: "merry@gmail.com"
-                );
-
-                CreatePost(context,
-                    title: "Cadillac readies concept for Pebble Beach showing",
-                    body: @"Cadillac plans to introduce a concept vehicle at this year's Pebble Beach Concours d'Elegance.
-                            Cadillac isn't saying if the concept is an SUV, crossover or new sporty car.",
-                    date: new DateTime(2016, 03, 27, 17, 53, 48),
-                    authorUsername: "merry@gmail.com"
-                );
+                
 
                 CreatePost(context,
                     title: "For automakers, Detroit's Dream Cruise should be prime turf to recruit engineers, designers.",
@@ -78,6 +45,27 @@ namespace MVCBlog.Migrations
                 );
 
                 CreatePost(context,
+                    title: "Cadillac readies concept for Pebble Beach showing",
+                    body: @"Cadillac plans to introduce a concept vehicle at this year's Pebble Beach Concours d'Elegance.
+                            Cadillac isn't saying if the concept is an SUV, crossover or new sporty car.",
+                    date: new DateTime(2016, 03, 27, 17, 53, 48),
+                    authorUsername: "merry@gmail.com"
+                );
+
+                CreatePost(context,
+                    title: "Hyundai says it's discussing partnerships with Google",
+                    body: @"SEOUL -- Hyundai Motor is in discussions with Google about further partnerships
+                        as the automaker seeks external expertise to remain competitive. The two companies have some
+                        common areas that may require cooperation, Hyundai Motor President Jeong Jin Haeng said after
+                        a meeting between the trade ministry and local automakers. Hyundai has been among the most 
+                        active automakers adopting Apple's CarPlay and Google parent Alphabet's Android Auto, 
+                        which integrate iPhone and Android handsets with car dashboards. Jeong didn't give further
+                        details or confirm if the automaker is considering developing autonomous cars with Google.",
+                    date: new DateTime(2016, 03, 27, 17, 53, 48),
+                    authorUsername: "merry@gmail.com"
+                );
+
+                CreatePost(context,
                     title: "Nissan to dangle 5-year, 100,000-mile warranty on 2017 Titan lineup",
                     body: @"Nissan will offer a five-year/100,000-mile, bumper-to-bumper warranty on the 2017 Titan
                             as it prepares to launch two new, volume variants of the large pickup. With the expanded warranty,
@@ -85,6 +73,19 @@ namespace MVCBlog.Migrations
                             truck shoppers.",
                     date: new DateTime(2016, 04, 11, 19, 02, 05),
                     authorUsername: "geshu@gmail.com"
+                );
+
+                CreatePost(context,
+                    title: "Ford to make autonomous cars for ride-hailing, ride-sharing by 2021",
+                    body: @"Ford Motor Co. today said it plans to introduce an autonomous vehicle by 2021 for
+                            use in a ride-hailing or ride-sharing service. Ford said the vehicle would be “specifically
+                            designed for commercial mobility services” and built in high volumes. “Ford is going to be 
+                            mass-producing vehicles with full autonomy in five years,” CEO Mark Fields said at an event
+                            in Silicon Valley that was broadcast online. “There’s going to be no steering wheel, there’s
+                            not going to be a gas pedal, there’s not going to be a brake pedal and of course a driver is
+                            not going to be required.",
+                    date: new DateTime(2016, 05, 11, 08, 22, 03),
+                    authorUsername: "merry@gmail.com"
                 );
 
                 CreatePost(context,
@@ -102,13 +103,15 @@ namespace MVCBlog.Migrations
                     date: new DateTime(2016, 06, 30, 17, 36, 52),
                     authorUsername: "merry@gmail.com"
                 );
+
                 CreatePost(context,
                    title: "Americans, this is your new Honda Civic",
                    body: @"And it's being built in Britain. Don't say we never did anything for you. Welcome, Americans, to your brand-new Honda Civic hatchback. Built (probably very well) by the fine men, women and machines of Swindon, no less, it’ll arrive in dealers this ‘fall’. Whenever that is. Developed by Honda’s R&D teams in Europe and Japan, the new Civic promises much. The look is bold (identical to the show car we saw at this year’s Geneva Motor Show), and the handling is touted as ‘world-class’. In the US it’s available with just the one engine – a direct-injection 1.5-litre turbocharged four with up to 180bhp and 162lb ft – across five trim levels. When the new Civic eventually reaches Europe sometime next year, expect diesels and a little 1.0-litre triple. A new Type-R, this time also available in the US, will follow. Good. 
 ",
                    date: new DateTime(2016, 06, 30, 17, 36, 52),
                    authorUsername: "merry@gmail.com"
-               );
+                );
+
                 CreatePost(context,
                    title: "The best images from this month's Top Gear magazine",
                    body: @"Road trips special: DB11 across Europe, GT-R in Iceland and Disco Volante Spyder in Italy.
@@ -119,7 +122,53 @@ namespace MVCBlog.Migrations
                         new DB11 can smooth things over with our European neighbours.",
                    date: new DateTime(2016, 06, 30, 17, 36, 52),
                    authorUsername: "merry@gmail.com"
-               );
+                );
+
+                CreatePost(context,
+                    title: "Mercedes-AMG hypercar will bring tiny F1-based V6 to a V12 gunfight",
+                    body: @"Automakers love competition and when one company comes out with a new model, it causes a stir. 
+                        Case in point: the recent hypercar that was engineered jointly between Aston Martin and Formula One's Red Bull Racing. 
+                        With Red Bull and Aston Martin releasing the insane AM-RB 001 in 2018, Mercedes-AMG, the current leader in the F1 season, 
+                        is looking to make its own road-legal, F1-based hypercar. During last weekend's Belgian Grand Prix, a high-level source within 
+                        Mercedes-AMG confirmed to TopGear.com that a hypercar is currently in the works. Earlier this year, we heard a wild rumor claiming 
+                        Mercedes-AMG was considering a machine to battle the Ferrari LaFerrari, McLaren P1, and Porsche 918 Spyder that could look like the 
+                        Mercedes-Benz AMG Vision Gran Turismo concept car from a few years ago (pictured). But it sounds like Mercedes-AMG is aiming further 
+                        up the food chain with something that's even more powerful and track ready. According to the UK's Evo, the hypercar will utilize the 
+                        same 1.6-liter turbocharged V6 that's in Lewis Hamilton and Nico Rosberg's W07 F1 racecar. With the addition of an energy recovery 
+                        system, the hypercar is expected to make between 1,000 and 1,500 horsepower. While that's more than the current crop of hybrid-powered hypercars,
+                        it will be going up against the AM-RB 001 that will be powered by a naturally aspirated V12. There's no word on what kind of 
+                        performance the V12 will have though. TopGear.com reports that Mercedes-AMG's hypercar will be based on a carbon fiber monocoque 
+                        and feature a gullwing-style cockpit canopy. The unique canopy style is reportedly being used for packaging reasons and as a hint 
+                        towards the Mercedes-Benz 300 SL and SLS AMG. Aerodynamically, Evo claims the hypercar will combine the look of the W07 F1 racecar and 
+                        a modern LMP1 endurance racecar. If true, that would put it as a direct competitor to Aston Martin and Red Bull's future vehicle. 
+                        Despite having the road-going AM-RB 001 in its sights with the same power to weight ratio of one horsepower to one kilogram, TopGear.com 
+                        reports that the vehicle will a more civilized road car and will therefore have a little more girth. The added weight will also bring 
+                        high-tech features with it, including biometric driver control systems that were recently shown off on the Vision Mercedes-Maybach 6, 
+                        claims TopGear.com. The systems, which Ferrari was reportedly working on five years ago, will allow the hypercar to read the driver's 
+                        physical inputs in real time and adjust the vehicle's chassis and electronic controls appropriately.",
+                    date: new DateTime(2016, 08, 29, 16, 27, 36),
+                    authorUsername: "merry@gmail.com"
+                );
+
+
+                CreatePost(context,
+                    title: "Drive.ai is developing an autonomous car that interacts with emojis",
+                    body: @"It seems inevitable that we will soon be sharing the roads with autonomous vehicles, but it's not
+                        just other vehicles that our self-driving counterparts need to concern themselves with. Automobiles, pedestrians,
+                        bicyclists, and motorcyclists all use the same roads. Autonomous startup Drive.ai is working on technology that 
+                        will help everyone communicate, potentially making our roads safer and more efficient.
+                        According to The Verge, Drive.ai's co-founder Carol Reiley left Stanford University's artificial intelligence lab to start the company.
+                        She's bringing her background in machine learning to autonomous vehicle development with the goal of creating a 
+                        system that can learn behaviors rather than being forced to react to millions and millions of different scenarios.
+                        In addition to the machine learning, Drive.ai is working on a way for autonomous vehicles to communicate with others 
+                        on the roads.While the system won't actually talk, the company is developing LED signs that use text and emoji-like 
+                        images to convey messages. The goal is to help simulate a gesture like a simple hand wave that could tell a pedestrian 
+                        that it is safe to cross the road. Even now, human drivers are limited in the way they communicate with those outside the vehicle.
+                        Drive.ai is also working to improve a vehicle's horn function. Reiley said that the horn, because it's limited in volume and direction,
+                        is a poor design.More variations could improve the horn's uses and help vehicles communicate better with others.",
+                    date: new DateTime(2016, 08, 30, 18, 15, 22),
+                    authorUsername: "merry@gmail.com"
+                );
 
                 CreateGalleryCar(context,
                     title: "Mercedes AMG",
@@ -186,17 +235,17 @@ namespace MVCBlog.Migrations
                     url: @" http://media.snimka.bg/s1/5543/037330663.jpg",
                     description: "<b>Year:</b> 2015;</br><b>Engine:</b> 3.0 Liters, 340Hp;</br><b>Acceleration 0-100km/h:</b> 5.9sec;</br><b>Top speed:</b> 250 km/h;");
 
-                /*CreateGalleryCar(context,
+                CreateGalleryCar(context,
                     title: "Volvo S90 Hybrid",
                     url: @" http://media.snimka.bg/s1/5543/037330664.jpg",
-                    description: "<b>Year:</b> 2016;</br><b>Engine:</b> 2.0 Liters, 320Hp;</br><b>Acceleration 0-100km/h:</b> 5.8sec;</br><b>Top speed:</b> Still no information available!!!");*/
+                    description: "<b>Year:</b> 2016;</br><b>Engine:</b> 2.0 Liters, 320Hp;</br><b>Acceleration 0-100km/h:</b> 5.8sec;</br><b>Top speed:</b> Still no information available!!!");
 
-                /*CreateGalleryCar(context,
+                CreateGalleryCar(context,
                     title: "Jaguar XF",
                     url: @" http://media.snimka.bg/s1/5551/037345852.jpg",
-                    description: "<b>Year:</b> 2015;</br><b>Engine:</b> 3.0 Liters, 320Hp;</br><b>Acceleration 0-100km/h:</b> 5.4sec;</br><b>Top speed:</b> 250 km/h;");*/
+                    description: "<b>Year:</b> 2015;</br><b>Engine:</b> 3.0 Liters, 320Hp;</br><b>Acceleration 0-100km/h:</b> 5.4sec;</br><b>Top speed:</b> 250 km/h;");
 
-                /*CreateGalleryCar(context,
+                CreateGalleryCar(context,
                     title: "Lexus GS-350",
                     url: @" http://media.snimka.bg/s1/5543/037330667.jpg",
                     description: "<b>Year:</b> 2012;</br><b>Engine:</b> 3.5 Liters, 317Hp;</br><b>Acceleration 0-100km/h:</b> 6.3sec;</br><b>Top speed:</b> 223 km/h;");
@@ -209,7 +258,7 @@ namespace MVCBlog.Migrations
                 CreateGalleryCar(context,
                     title: "Mazda 6",
                     url: @" http://media.snimka.bg/s1/5543/037330666.jpg",
-                    description: "<b>Year:</b> 2015;</br><b>Engine:</b> 2.5 Liters, 192Hp;</br><b>Acceleration 0-100km/h:</b> 7.8sec;</br><b>Top speed:</b> 223 km/h;");*/
+                    description: "<b>Year:</b> 2015;</br><b>Engine:</b> 2.5 Liters, 192Hp;</br><b>Acceleration 0-100km/h:</b> 7.8sec;</br><b>Top speed:</b> 223 km/h;");
 
 
                 CreateVideo(context,
