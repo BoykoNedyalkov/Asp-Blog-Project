@@ -8,6 +8,8 @@ using System.Web;
 using System.Web.Mvc;
 using MvcBlog.Models;
 using PagedList;
+using PagedList.Mvc;
+
 
 namespace MvcBlog.Controllers
 {
@@ -26,15 +28,15 @@ namespace MvcBlog.Controllers
             return View(postsWithAuthors);
         }
         */
-        public ActionResult Index(int? page)
+        public ActionResult Index(int page = 1, int pageSize = 5)
         {
             
             var postsWithAuthors =
                 db.Posts
                 .Include(p => p.Author)
                 .ToList();
-
-            return View(postsWithAuthors);
+            PagedList<Post> singlePage = new PagedList<Post>(postsWithAuthors, page, pageSize);
+            return View(singlePage);
         }
         // GET: Posts/Details/5
         public ActionResult Details(int? id)
