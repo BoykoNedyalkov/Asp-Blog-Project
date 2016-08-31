@@ -48,15 +48,20 @@ namespace MvcBlog.Controllers
             var lastItem = db.GalleryCars.OrderByDescending(x => x.Id).First();
             var firstItem = db.GalleryCars.OrderBy(x => x.Id).First();
             var carComments = db.Comments.Where(c => c.Post.Id == galleryCar.Id).Include(c => c.Author).ToList();
-            var prevCar = db.GalleryCars.OrderByDescending(x => x.Id < galleryCar.Id).FirstOrDefault();
+            List<GalleryCar> prevCar = db.GalleryCars.Where(x => x.Id < galleryCar.Id).ToList();
+            var prev = galleryCar;
+            if (prevCar.Count > 0)
+            {
+                prev = prevCar[prevCar.Count - 1];
+            }
             var nextCar = db.GalleryCars.Where(x => x.Id > galleryCar.Id).FirstOrDefault();
             var prevId = firstItem.Id;
             var nextId = lastItem.Id;
             if(galleryCar.Id != firstItem.Id)
             {
-                prevId = prevCar.Id;
+                prevId = prev.Id;
             }
-            prevId = prevCar.Id;
+            
             if(galleryCar.Id != lastItem.Id)
             {
                 nextId = nextCar.Id;

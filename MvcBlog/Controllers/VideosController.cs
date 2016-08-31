@@ -46,7 +46,12 @@ namespace MvcBlog.Controllers
             var lastItem = db.Videos.OrderByDescending(x => x.Id).First();
             var firstItem = db.Videos.OrderBy(x => x.Id).First();
             var videoComments = db.VideoComments.Where(c => c.Post.Id == video.Id).Include(c => c.Author).ToList();
-            var prevVid = db.Videos.OrderByDescending(x => x.Id < video.Id).FirstOrDefault();
+            List<Video> prev = db.Videos.Where(x => x.Id < video.Id).ToList();
+            var prevVid = video;
+            if (prev.Count >0 )
+            { 
+             prevVid = prev[prev.Count - 1];
+            }
             var nextVid = db.Videos.Where(x => x.Id > video.Id).FirstOrDefault();
             var prevId = firstItem.Id;
             var nextId = lastItem.Id;
