@@ -9,7 +9,6 @@ using System.Web.Mvc;
 using MvcBlog.Models;
 using PagedList;
 using PagedList.Mvc;
-using System.Linq;
 
 
 namespace MvcBlog.Controllers
