@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using MvcBlog.Models;
 using PagedList;
 using PagedList.Mvc;
+using System.Linq;
 
 
 namespace MvcBlog.Controllers
@@ -35,6 +36,7 @@ namespace MvcBlog.Controllers
                 db.Posts
                 .Include(p => p.Author)
                 .ToList();
+            postsWithAuthors.Reverse();
             PagedList<Post> singlePage = new PagedList<Post>(postsWithAuthors, page, pageSize);
             return View(singlePage);
         }
