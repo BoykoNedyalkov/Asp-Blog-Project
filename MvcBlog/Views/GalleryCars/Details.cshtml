@@ -1,3 +1,4 @@
+@using Microsoft.AspNet.Identity
 @model MvcBlog.ViewModel.GalleryCarViewModel
 
 @{
@@ -21,9 +22,11 @@
                 <img class="img-responsive" src=@Html.Raw(Model.Car.URL)>
                 
                 <p>
+                    @if (User.IsInRole("Administrators")) { 
+                    @Html.ActionLink("Edit", "Edit", new { id = Model.Car.Id }, new { @class = "btn btn-primary", @style = "color:white" }) 
 
-                    @Html.ActionLink("Edit", "Edit", new { id = Model.Car.Id }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = Model.Car.Id })
+                    @Html.ActionLink("Delete", "Delete", new { id = Model.Car.Id }, new { @class = "btn btn-primary", @style = "color:white" })
+                    }
                 </p>
             </div>
             <div class="col-md-2">
@@ -81,12 +84,14 @@
             {
                 <div class="row">
                     <div class="col-md-2">
+                        @if(item.Author.Id == User.Identity.GetUserId() || User.IsInRole("Administrators")) { 
                         <a href="/Comments/Delete/@item.Id">
                             <div class=" btn btn-danger" style="color:white">Delete</div>
                         </a>
                         <a href="/Comments/Edit/@item.Id">
                             <div class=" btn btn-danger" style="color:white">Edit</div>
                         </a>
+                        }
                     </div>
                     
                     <div class="post col-md-7">

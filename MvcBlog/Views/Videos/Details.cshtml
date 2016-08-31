@@ -1,4 +1,5 @@
-﻿@model MvcBlog.ViewModel.VideoViewModel
+﻿@using Microsoft.AspNet.Identity
+@model MvcBlog.ViewModel.VideoViewModel
 
 @{
     ViewBag.Title = "Details";
@@ -29,8 +30,12 @@
                 <iframe @*class="img-responsive img-rounded"*@ width="700" height="520" src="@Html.Raw(Model.video.Url)" frameborder="0" allowfullscreen align="middle"></iframe>
                 <p>
 
-                    @Html.ActionLink("Edit", "Edit", new { id = Model.video.Id }) |
-                    @Html.ActionLink("Back to List", "Index")
+                   @if (User.IsInRole("Administrators"))
+                   {
+                    @Html.ActionLink("Edit", "Edit", new { id = Model.video.Id }, new { @class = "btn btn-primary", @style = "color:white" })
+
+                    @Html.ActionLink("Delete", "Delete", new { id = Model.video.Id }, new { @class = "btn btn-primary", @style = "color:white" })
+                   }
                 </p>
 
             @*</div>*@
@@ -53,9 +58,7 @@
         <div class="col-md-2">
 
         </div>
-        <div class="col-md-6 VideoDetails">
-            @Html.Raw(Model.video.Description)
-        </div>
+        
         <div class="col-md-2">
 
         </div>
@@ -68,8 +71,17 @@
     {
         <div class="row">
             <div class="col-md-2 ">
+               @if (item.Author.Id == User.Identity.GetUserId() || User.IsInRole("Administrators"))
+               {
+                    <a href="/VideoComments/Delete/@item.Id">
+                        <div class=" btn btn-danger" style="color:white">Delete</div>
+                    </a>
 
-            </div>
+                    <a href="/VideoComments/Edit/@item.Id">
+                        <div class=" btn btn-danger" style="color:white">Edit</div>
+                    </a>
+               }
+                </div>
             <div class="post col-md-7">
                 <div class="about">
                     Posted on <i>@item.Date</i>

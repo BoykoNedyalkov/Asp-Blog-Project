@@ -37,6 +37,7 @@ namespace MvcBlog.Controllers
         }
 
         // GET: VideoComments/Create
+        [Authorize]
         public ActionResult Create()
         {
             return View();
@@ -47,6 +48,7 @@ namespace MvcBlog.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public ActionResult Create([Bind(Include = "Id,Text,Date,postId,authorId")] VideoComment videoComment)
         {
             var postId = (int)this.Session["videoPostId"];
@@ -89,11 +91,19 @@ namespace MvcBlog.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,Text,Date")] VideoComment videoComment)
         {
+            var postId = (int)this.Session["videoPostId"];
+            var postObj = db.Videos.Where(p => p.Id == postId).Single();
+            videoComment.Post = postObj;
+            var authorId = User.Identity.GetUserId();
+            var authorObj = db.Users.Where(u => u.Id == authorId).Single();
+            videoComment.Author = authorObj;
+            var date = DateTime.Now;
+            videoComment.Date = date;
             if (ModelState.IsValid)
             {
                 db.Entry(videoComment).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", "Videos", new { postObj.Id });
             }
             return View(videoComment);
         }
@@ -118,10 +128,13 @@ namespace MvcBlog.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
+            var postId = (int)this.Session["videoPostId"];
+            var postObj = db.Videos.Where(p => p.Id == postId).Single();
+            
             VideoComment videoComment = db.VideoComments.Find(id);
             db.VideoComments.Remove(videoComment);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Details", "Videos", new { postObj.Id });
         }
 
         protected override void Dispose(bool disposing)

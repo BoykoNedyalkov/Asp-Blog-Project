@@ -128,10 +128,10 @@ namespace MvcBlog.Controllers
             Comment comment = db.Comments.Find(id);
             db.Comments.Remove(comment);
             db.SaveChanges();
-            var postId = (int)this.Session["postId"];
+            var postId = (int)this.Session["videoPostId"];
             var postObj = db.GalleryCars.Where(p => p.Id == postId).Single();
             comment.Post = postObj;
-            return RedirectToAction("Details", "GalleryCars", new { postObj.Id });
+            return RedirectToAction("Details", "Videos", new { postObj.Id });
         }
 
         protected override void Dispose(bool disposing)
