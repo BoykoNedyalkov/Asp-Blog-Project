@@ -66,6 +66,7 @@
         <div class="col-md-1">
             @if (Model.Car.Id != Model.lastItemID)
             {
+                
                 @Html.ActionLink("Next", "Details", new { id = Model.Car.Id + 1 }, new { @class = "btn btn-primary", @style = "color:white" })
             }
             else
