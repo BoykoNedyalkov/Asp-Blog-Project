@@ -28,9 +28,9 @@
             @if (User.IsInRole("Administrators"))
             {
 
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) @:|
-            @Html.ActionLink("Details", "Details", new { id = item.Id }) @:|
-            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-success", @style = "color:white" }) @:|
+            @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-primary", @style = "color:white" }) @:|
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-danger", @style = "color:white" })
             }
         </div>
     }
